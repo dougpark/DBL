@@ -57,8 +57,8 @@ function init() {
     }
 
     // bug that setting these in css not working for if statements
-    document.getElementById("addBox").style.visibility = "hidden";
-    document.getElementById("settingsBox").style.visibility = "hidden";
+    document.getElementById("newTimerBox").style.visibility = "hidden";
+    document.getElementById("preferencesBox").style.visibility = "hidden";
 }
 
 // this is called by an interval timer to keep it up to date
@@ -127,7 +127,7 @@ function debugMode() {
     // document.getElementById('clocktime').style.fontSize = '16px';
     // document.getElementById('clockdate').style.color = "red";
     // document.getElementById('clockdate').style.fontSize = '16px';
-    // document.getElementById('nextreminder').style.color = "red";
-    // document.getElementById('nextreminder').style.fontSize = '16px';
+    // document.getElementById('nextAlarm').style.color = "red";
+    // document.getElementById('nextAlarm').style.fontSize = '16px';
 
 }

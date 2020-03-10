@@ -9,8 +9,8 @@
     <link rel="stylesheet" type="text/css" href="./style.css" media="all">
     <meta http-equiv="content-type" content="text/html/javascript; charset=utf-8" />
     <script src="./reminders.js"></script>
-    <script src="./settings.js"></script>
-    <script src="./menu.js"></script>
+    <script src="./preferences.js"></script>
+    <script src="./newTimer.js"></script>
     <script src="./timers.js"></script>
     <script src="./say.js"></script>
     <script src="./sounds.js"></script>
@@ -21,72 +21,72 @@
 
 <body id="backbody" scroll="no" style="overflow: hidden; " onload=init();>
 
-    <div id="backdiv" class="backgroundBox">
+    <div id="backgroundBox" class="backgroundBox">
         <div class="headerBox">
 
-            <img class=menuButton onclick="menuButton()" src="./assets/add-circle-sharp.svg" id="menuImage" width="24"
-                height="24" draggable="false">
+            <img class=createTimerButton onclick="createTimerButton()" src="./assets/add-circle-sharp.svg"
+                id="newTimerImage" width="24" height="24" draggable="false">
 
             <span class=buttons>
 
-                <img class=buttonSec onclick="addButton({second:10, message: '10 seconds are up!'})"
+                <img class=buttonSec onclick="newTimerButton({second:10, message: '10 seconds are up!'})"
                     src="./assets/black-circle-10.svg" width="21" height="21" draggable="false">
 
-                <img class=buttonSec onclick="addButton({second:15, message: '15 seconds are up!'})"
+                <img class=buttonSec onclick="newTimerButton({second:15, message: '15 seconds are up!'})"
                     src="./assets/black-circle-15.svg" width="21" height="21" draggable="false">
 
-                <img class=buttonSec onclick="addButton({second:30, message: '30 seconds are up!'})"
+                <img class=buttonSec onclick="newTimerButton({second:30, message: '30 seconds are up!'})"
                     src="./assets/black-circle-30.svg" width="21" height="21" draggable="false">
 
 
-                <img class=buttonMin onclick="addButton({minute:1, message: '1 minute is up!'})"
+                <img class=buttonMin onclick="newTimerButton({minute:1, message: '1 minute is up!'})"
                     src="./assets/blue-circle-1.svg" width="21" height="21" draggable="false">
 
-                <img class=buttonMin onclick="addButton({minute:3, message: '3 minutes are up!'})"
+                <img class=buttonMin onclick="newTimerButton({minute:3, message: '3 minutes are up!'})"
                     src="./assets/black-circle-3.svg" width="21" height="21" draggable="false">
 
-                <img class=buttonMin onclick="addButton({minute:5, message: '5 minutes are up!'})"
+                <img class=buttonMin onclick="newTimerButton({minute:5, message: '5 minutes are up!'})"
                     src="./assets/black-circle-5.svg" width="21" height="21" draggable="false">
 
-                <img class=buttonMin onclick="addButton({minute:10, message: '10 minutes are up!'})"
+                <img class=buttonMin onclick="newTimerButton({minute:10, message: '10 minutes are up!'})"
                     src="./assets/black-circle-10.svg" width="21" height="21" draggable="false">
 
 
 
             </span>
 
-            <!-- <img class=addButton onclick="addButton({second: 30, message: '30 seconds are up. Ding!'})"
+            <!-- <img class=newTimerButton onclick="newTimerButton({second: 30, message: '30 seconds are up. Ding!'})"
                 src="./assets/add-circle-sharp.svg" width="24" height="24" draggable="false">
            -->
-            <img class=settingsButton onclick="settingsButton()" src="./assets/settings-sharp.svg" width="20"
+            <img class=preferencesButton onclick="preferencesButton()" src="./assets/settings-sharp.svg" width="20"
                 height="20" draggable="false">
 
         </div>
 
-        <div class="nextReminderBox">
-            <span id="nextreminder" class="nextreminder">
+        <div class="nextAlarmBox">
+            <span id="nextAlarm" class="nextAlarm">
             </span>
         </div>
 
-        <div id="upcomingBox" class="upcomingBox">
+        <div id="scheduledBox" class="scheduledBox">
             <span id="upcoming" class="upcoming"></span>
         </div>
 
-        <div id="settingsBox" class="settingsBox">
-            <span id="settings" class="settings">
+        <div id="preferencesBox" class="preferencesBox">
+            <span id="preferences" class="preferences">
                 <b>Preferences</b> - Coming Soon. Default view, default chime, default message, 12/24 display.
                 Future: Background process, custom countdowns, click to quiet alarm, trigger BTT triggers.
             </span>
         </div>
 
-        <div id="addBox" class="addBox">
+        <div id="newTimerBox" class="newTimerBox">
             <span id="add" class="add">
                 <b>New Timer</b> - Coming Soon. New timer with custom time, chime and message.
                 Future: Custom reminder groups for various activities, such as:
                 Gym workout, meal planning, nightime routine, morning routine, practice sessions.
             </span>
 
-            <!-- <img class=addButton2 onclick="addButton({second: 30, message: '30 second timer complete'})"
+            <!-- <img class=addButton2 onclick="newTimerButton({second: 30, message: '30 second timer complete'})"
                 src="./assets/add-circle-sharp.svg" width="24" height="24" draggable="false">
            -->
         </div>

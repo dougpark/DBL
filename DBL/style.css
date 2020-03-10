@@ -79,7 +79,7 @@
      text-align: center;
  }
 
- .nextReminderBox {
+ .nextAlarmBox {
 
      xborder: 1px solid #838383;
      xborder-style: none none solid none;
@@ -93,7 +93,7 @@
      text-align: center;
  }
 
- .upcomingBox {
+ .scheduledBox {
      border: 1px #838383;
      border-style: solid none none none;
      width: 466px;
@@ -112,7 +112,7 @@
 
  /* height 200 */
 
- .settingsBox {
+ .preferencesBox {
      xborder: 1px #838383;
      xborder-style: solid none none none;
      width: 466px;
@@ -128,7 +128,7 @@
 
  }
 
- .addBox {
+ .newTimerBox {
      xborder: 1px #838383;
      xborder-style: solid none none none;
      width: 466px;
@@ -191,7 +191,7 @@
 
  }
 
- .nextreminder {
+ .nextAlarm {
 
      position: absolute;
      font-Size: 16px;
@@ -223,7 +223,7 @@
      margin-bottom: 0px
  }
 
- .settings {
+ .preferences {
      font-Size: 16px;
      xcolor: #D3D3D3;
      color: black;
@@ -334,7 +334,7 @@
      transition-duration: 4s;
  }
 
- .settingsButton {
+ .preferencesButton {
      position: absolute;
      left: 94%;
      opacity: .7;
@@ -344,14 +344,14 @@
      transform: translateY(25%);
  }
 
- .settingsButton:hover {
+ .preferencesButton:hover {
      opacity: 1;
      transition-duration: 4s;
 
 
  }
 
- .menuButton {
+ .createTimerButton {
      position: absolute;
      left: 1%;
      opacity: 0.7;
@@ -361,7 +361,7 @@
      transform: translateY(25%);
  }
 
- .menuButton:hover {
+ .createTimerButton:hover {
      opacity: 1;
      transition-duration: 4s;
 

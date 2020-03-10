@@ -90,7 +90,7 @@ function updateTimers() {
 }
 
 
-function addButton({
+function newTimerButton({
         hour = 0,
         minute = 0,
         second = 0,

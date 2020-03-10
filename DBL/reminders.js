@@ -101,7 +101,7 @@ function updateReminders() {
     displayStatus();
 
     // displays the status of the next reminder that is due
-    displayNextReminder();
+    displaynextAlarm();
 
     // reset the complete flag so tomorrows reminders will work
     resetCompleteFlag();
@@ -170,7 +170,7 @@ function calcTomorrow() {
 
 }
 
-function displayNextReminder() {
+function displaynextAlarm() {
     // find the next reminder after the current time from the sorted list
     var nextIndex = 0;
     var nowDate = new Date();
@@ -180,7 +180,7 @@ function displayNextReminder() {
         // with sorted dates, the first nextDate > now is the next reminder
         if (nextDate > nowDate) {
             nextIndex = index;
-            document.getElementById('nextreminder').innerHTML = reminders[index].display;
+            document.getElementById('nextAlarm').innerHTML = reminders[index].display;
             break;
         }
     }
@@ -228,14 +228,14 @@ function calcTimeToAction() {
         var nextRem = hoursRem + ":" +
             minutesRem + ":" + secondsRem;
 
-        var nextReminder = nextDiff + " - " + reminders[index].message;
+        var nextAlarm = nextDiff + " - " + reminders[index].message;
         var kind = reminders[index].kind;
         if (kind == undefined) {
-            nextReminder += " @ " + nextRem;
+            nextAlarm += " @ " + nextRem;
         }
 
         // set display atribute here
-        reminders[index].display = nextReminder;
+        reminders[index].display = nextAlarm;
 
     }
 }
