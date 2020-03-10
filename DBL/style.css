@@ -1,0 +1,391 @@
+ html {
+     -webkit-touch-callout: none;
+     -webkit-user-select: none;
+     user-select: none;
+     cursor: default;
+     background-color: clear;
+ }
+
+ body {
+     /*-webkit-backdrop-filter: blur(36px) saturate(200%);
+     background-color: rgba(32, 32, 32, 0.6);
+     border-radius: 24px;
+     */
+     margin: 0px;
+     padding: 0px;
+ }
+
+ .xx {
+     background: #d3d3d3;
+     background: #323232;
+     background: #505050;
+     background: #838383;
+     background: #d3d3d3;
+     background: #323232;
+
+     background: #AFDA5F;
+     background: #63D0F7;
+     background: #69A3F8;
+     background: #AB48DE;
+     background: #E38949;
+     background: #F7CF61;
+
+     background: #97D144;
+     background: #D2EFAB;
+     background: #DB3E57;
+     background: #ED7E2E;
+     background: #EBBC3F;
+     background: #3D3D3D;
+     background: #1B2015;
+
+ }
+
+ xbdbg {
+
+     background: radial-gradient(ellipse at center, #0a2e38 0%, #000000 70%);
+     background: radial-gradient(ellipse at center, #0a2e38 0%, #161616 70%);
+     position: absolute;
+     display: block;
+     -webkit-backdrop-filter: blur(36px) saturate(200%);
+     background-color: rgba(32, 32, 32, 0.6);
+     border-radius: 6px;
+     -webkit-animation: backdrop 5s ease infinite;
+     animation: backdrop 5s ease infinite;
+     -webkit-box-shadow:
+         0px 12px 24px rgba(0, 0, 0, .6),
+         0px 9px 18px rgba(0, 0, 0, .3);
+ }
+
+ .backgroundBox {
+     padding: 0px;
+     margin: 0px;
+     border: 0px#ff0000;
+     width: 486px;
+     height: 315px;
+     position: absolute;
+     background-color: #323232;
+     border-radius: 6px 6px 6px 6px;
+ }
+
+ .headerBox {
+     margin: 0px;
+     padding: 0px;
+     border: 0px dashed #fff;
+     width: 486px;
+     height: 40px;
+     position: absolute;
+     background-color: #505050;
+     border-radius: 6px 6px 0px 0px;
+     text-align: center;
+ }
+
+ .nextReminderBox {
+
+     xborder: 1px solid #838383;
+     xborder-style: none none solid none;
+     width: 486px;
+     top: 35px;
+     height: 40px;
+     xpadding: 5px 0px 5px 0px;
+     position: absolute;
+     background-color: #323232;
+     margin: 0px;
+     text-align: center;
+ }
+
+ .upcomingBox {
+     border: 1px #838383;
+     border-style: solid none none none;
+     width: 466px;
+     height: 190px;
+     position: absolute;
+     top: 75px;
+     display: float;
+     xbackground-color: #CB8D2E;
+     xbackground-color: rgba(58, 191, 49, .75);
+     margin: 0px;
+     padding: 10px 0px 0px 20px;
+     visibility: visible;
+     overflow-y: auto;
+     xcolor: black;
+ }
+
+ /* height 200 */
+
+ .settingsBox {
+     xborder: 1px #838383;
+     xborder-style: solid none none none;
+     width: 466px;
+     height: 190px;
+     position: absolute;
+     top: 75px;
+     display: float;
+     background-color: #CB8D2E;
+     xbackground-color: #323232;
+     margin: 0px;
+     padding: 10px 0px 0px 20px;
+     visibility: hidden;
+
+ }
+
+ .addBox {
+     xborder: 1px #838383;
+     xborder-style: solid none none none;
+     width: 466px;
+     height: 190px;
+     position: absolute;
+     top: 75px;
+     display: float;
+     background-color: #CB8D2E;
+     color: black;
+     font-Family: '-apple-system',
+         'Cutive Mono';
+     font-Weight: 200;
+     text-Align: left;
+     margin: 0px;
+     padding: 10px 0px 0px 20px;
+     visibility: hidden;
+ }
+
+ .footerBox {
+     padding: 0px;
+     margin: 0px;
+     float: left;
+     border: 0px dashed #fff;
+     top: 270px;
+     width: 486px;
+     height: 45px;
+     position: absolute;
+     display: float;
+     background-color: #505050;
+     border-radius: 0px 0px 6px 6px;
+     margin: 0px;
+ }
+
+
+
+ .clocktime {
+
+     border: 0px dashed #f00;
+     font-Size: 32px;
+     color: #D3D3D3;
+     font-Family:
+         monospace,
+         'Cutive Mono';
+     font-Weight: 200;
+     letter-Spacing: -0.03em;
+     display: table;
+     margin: 0 auto;
+
+ }
+
+ .clockdate {
+
+     font-Size: 16px;
+     color: #D3D3D3;
+     font-Family:
+         '-apple-system',
+         'Cutive Mono';
+     font-Weight: 200;
+     text-Align: center;
+
+ }
+
+ .nextreminder {
+
+     position: absolute;
+     font-Size: 16px;
+     color: #D3D3D3;
+
+     font-Family:
+         '-apple-system',
+         'Cutive Mono';
+     font-Weight: 200;
+     text-Align: center;
+     xleft: 50%;
+     top: 30%;
+
+     transform: translateY(-50%);
+
+     transform: translateX(-50%);
+
+ }
+
+ .upcoming {
+     font-Size: 12px;
+
+     font-Family: '-apple-system',
+         'Cutive Mono';
+     font-Weight: 200;
+     text-Align: left;
+     margin-left: 0px;
+     margin-top: 0px;
+     margin-bottom: 0px
+ }
+
+ .settings {
+     font-Size: 16px;
+     xcolor: #D3D3D3;
+     color: black;
+     font-Family: '-apple-system',
+         'Cutive Mono';
+     font-Weight: 200;
+     text-Align: left;
+
+ }
+
+ .p-list {
+
+     font-Size: 14px;
+     color: #D3D3D3;
+     xcolor: black;
+     font-Family: '-apple-system',
+         'Cutive Mono';
+     font-Weight: 200;
+     text-Align: left;
+
+     margin-left: 0px;
+     margin-top: 0px;
+     margin-bottom: 0px
+ }
+
+ .speechButton {
+     position: absolute;
+     top: 7px;
+     left: 65%;
+     opacity: 0.8;
+     text-align: right;
+     filter: invert(48%) sepia(0%) saturate(100%) hue-rotate(86deg) brightness(118%) contrast(119%);
+
+ }
+
+ .speechButton:hover {
+     opacity: 1;
+     transition-duration: 4s;
+     filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);
+
+
+ }
+
+ .addButton {
+     position: absolute;
+     left: 80%;
+     opacity: .7;
+     filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);
+     top: 50%;
+     transform: translateY(-50%);
+ }
+
+ .addButton:hover {
+     opacity: 1;
+     transition-duration: .1s;
+ }
+
+ .addButton2 {
+     position: absolute;
+     left: 20%;
+     opacity: .7;
+     xfilter: invert(48%) sepia(79%) saturate(0%) hue-rotate(86deg) brightness(118%) contrast(119%);
+     top: 10%;
+     transform: translateY(-50%);
+ }
+
+ .buttons {
+
+     xposition: relative;
+     width: 200px;
+     xheight: 40px;
+     border: 0px dashed #f00;
+     xdisplay: table;
+     margin: 0 auto;
+     text-align: center;
+     xtop: 50%;
+     xbottom: 50%;
+
+ }
+
+ .buttonMin {
+     xposition: relative;
+     xmargin-right: auto;
+     xmargin-left: auto;
+     opacity: .7;
+     filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);
+     transform: translateY(35%);
+ }
+
+ .buttonMin:hover {
+     opacity: 1;
+     transition-duration: 4s;
+ }
+
+ .buttonSec {
+
+     xposition: relative;
+     xmargin-right: auto;
+     xmargin-left: auto;
+     opacity: .7;
+     filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(150deg) brightness(118%) contrast(119%);
+     xtransform-origin: 0% 0%;
+     transform: translateY(35%);
+ }
+
+ .buttonSec:hover {
+     opacity: 1;
+     transition-duration: 4s;
+ }
+
+ .settingsButton {
+     position: absolute;
+     left: 94%;
+     opacity: .7;
+     filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(20deg) brightness(118%) contrast(119%);
+     xtop: 50%;
+     xtransform: scale(1.2, 1.2);
+     transform: translateY(25%);
+ }
+
+ .settingsButton:hover {
+     opacity: 1;
+     transition-duration: 4s;
+
+
+ }
+
+ .menuButton {
+     position: absolute;
+     left: 1%;
+     opacity: 0.7;
+     transform: scale(1.2, 1.2);
+     filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(20deg) brightness(118%) contrast(119%);
+     xtop: 50%;
+     transform: translateY(25%);
+ }
+
+ .menuButton:hover {
+     opacity: 1;
+     transition-duration: 4s;
+
+
+ }
+
+
+
+ /* width */
+ ::-webkit-scrollbar {
+     width: 10px;
+ }
+
+ /* Track */
+ ::-webkit-scrollbar-track {
+     background: #333;
+ }
+
+ /* Handle */
+ ::-webkit-scrollbar-thumb {
+     background: #888;
+ }
+
+ /* Handle on hover */
+ ::-webkit-scrollbar-thumb:hover {
+     background: #555;
+ }

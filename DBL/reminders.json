@@ -1,0 +1,65 @@
+ [{
+         "sortBy": 0,
+         "hour": 6,
+         "minute": 45,
+         "second": 0,
+         "type": "speak",
+         "message": "Time for breakfast.",
+         "chime": ""
+     },
+     {
+         "sortBy": 0,
+         "hour": 6,
+         "minute": 58,
+         "second": 0,
+         "type": "speak",
+         "message": "Time for backscratch.",
+         "chime": ""
+     },
+     {
+         "sortBy": 0,
+         "hour": 7,
+         "minute": 0,
+         "second": 0,
+         "type": "speak",
+         "message": "Time to get ready.",
+         "chime": ""
+     },
+     {
+         "sortBy": 0,
+         "hour": 7,
+         "minute": 2,
+         "second": 0,
+         "type": "speak",
+         "message": "Don't be late.",
+         "chime": ""
+     },
+     {
+         "sortBy": 0,
+         "hour": 7,
+         "minute": 3,
+         "second": 0,
+         "type": "speak",
+         "message": "Get going. It's time to move.",
+         "chime": ""
+     },
+     {
+         "sortBy": 0,
+         "hour": 7,
+         "minute": 20,
+         "second": 0,
+         "type": "speak",
+         "message": "Get in the car, I'm leaving!",
+         "chime": ""
+     },
+     {
+         "sortBy": 0,
+         "hour": 22,
+         "minute": 0,
+         "second": 0,
+         "type": "speak",
+         "message": "Time for bed.",
+         "chime": ""
+     }
+
+ ]
