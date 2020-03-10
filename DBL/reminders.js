@@ -119,7 +119,7 @@ function displayStatus() {
         }
     }
 
-    document.getElementById('upcoming').innerHTML = disp_status;
+    document.getElementById('scheduled').innerHTML = disp_status;
 }
 
 function resetCompleteFlag() {

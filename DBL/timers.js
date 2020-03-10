@@ -10,7 +10,7 @@ function addTimer(timer) {
     timer.type = "speak";
     timer.kind = "timer";
 
-    // add hour, min, sec to current time to set upcoming timer
+    // add hour, min, sec to current time to set scheduled timer
     var d = new Date();
     var nhour = Number(timer.hour) + d.getHours(),
         nmin = Number(timer.minute) + d.getMinutes(),
