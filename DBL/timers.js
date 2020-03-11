@@ -4,8 +4,8 @@ function addTimer(timer) {
     if (timer.hour == undefined) timer.hour = 0;
     if (timer.minute == undefined) timer.minute = 0;
     if (timer.second == undefined) timer.second = 0;
-    if (timer.message == undefined) timer.message = "Timer Done";
-    if (timer.chime == undefined) timer.chime = "";
+    if (timer.message == undefined) timer.message = preferences.defaultMessage;
+    if (timer.chime == undefined) timer.chime = preferences.defaultChime;
     timer.sortBy = 0;
     timer.type = "speak";
     timer.kind = "timer";
@@ -94,7 +94,7 @@ function newTimerButton({
         hour = 0,
         minute = 0,
         second = 0,
-        message = " Timer Complete"
+        message = preferences.defaultMessage
     }
 
 ) {

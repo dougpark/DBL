@@ -9,6 +9,10 @@ function loadReminders() {
     request.onload = function () {
         reminders = request.response;
 
+        if (isEmptyObject(reminders)) {
+            reminders = [];
+        }
+
         // check if timer info on URL and add to list
         getURLTimer();
 
@@ -109,18 +113,7 @@ function updateReminders() {
 
 }
 
-// debug code to display all reminders and timers
-function displayStatus() {
-    // debug code to show list of reminders
-    var disp_status = "";
-    for (var index = 0; index < reminders.length; index++) {
-        if (index > 0 && index < 100) {
-            disp_status = disp_status + "<div class=p-list>" + reminders[index].display + "</div>";
-        }
-    }
 
-    document.getElementById('scheduled').innerHTML = disp_status;
-}
 
 function resetCompleteFlag() {
     // loop through reminders to determine which ones are tomorrow
@@ -170,20 +163,35 @@ function calcTomorrow() {
 
 }
 
+function clearDisplayNextAlarm() {
+    var table = document.getElementById("nextAlarmTable");
+    table.rows[1].cells[0].innerHTML = "";
+    table.rows[1].cells[1].innerHTML = "No Timers";
+    table.rows[1].cells[2].innerHTML = "";
+}
+
 function displaynextAlarm() {
+    if (reminders[0].disp_nextDiff == undefined) return;
+
     // find the next reminder after the current time from the sorted list
     var nextIndex = 0;
     var nowDate = new Date();
     var nextDate = new Date();
+
     for (var index = 0; index < reminders.length; index++) {
         nextDate = reminders[index].sortBy;
         // with sorted dates, the first nextDate > now is the next reminder
         if (nextDate > nowDate) {
             nextIndex = index;
-            document.getElementById('nextAlarm').innerHTML = reminders[index].display;
             break;
         }
     }
+
+    // insert into table
+    var table = document.getElementById("nextAlarmTable");
+    table.rows[1].cells[0].innerHTML = reminders[index].disp_nextDiff;
+    table.rows[1].cells[1].innerHTML = reminders[index].disp_nextMsg;
+    table.rows[1].cells[2].innerHTML = reminders[index].disp_nextRem;
 
 }
 
@@ -205,6 +213,9 @@ function calcTimeToAction() {
         var seconds = Math.floor((distance % (1000 * 60)) / 1000) + 1; // off by 1
 
         // pretty format for minutes and seconds
+        if (hours <= 9) {
+            hours = "0" + hours;
+        }
         if (minutes <= 9) {
             minutes = "0" + minutes;
         }
@@ -219,23 +230,52 @@ function calcTimeToAction() {
         var minutesRem = reminders[index].minute;
         var secondsRem = reminders[index].second;
 
+        if (hoursRem <= 9) {
+            hoursRem = "0" + hoursRem;
+        }
         if (minutesRem <= 9) {
             minutesRem = "0" + minutesRem;
         }
         if (secondsRem <= 9) {
             secondsRem = "0" + secondsRem;
         }
-        var nextRem = hoursRem + ":" +
+
+        var nextReminder = "";
+        var nextRemTime = hoursRem + ":" +
             minutesRem + ":" + secondsRem;
 
-        var nextAlarm = nextDiff + " - " + reminders[index].message;
+        var nextMsg = reminders[index].message;
+
+        var nextAlarm = nextDiff + " - " + nextMsg;
+
         var kind = reminders[index].kind;
-        if (kind == undefined) {
-            nextAlarm += " @ " + nextRem;
-        }
+        //if (kind == undefined || kind == "reminder") {
+        nextReminder = "@ " + nextRemTime;
+        //}
 
         // set display atribute here
         reminders[index].display = nextAlarm;
+        reminders[index].disp_nextDiff = nextDiff;
+        reminders[index].disp_nextMsg = nextMsg;
+        reminders[index].disp_nextRem = nextReminder;
+        reminders[index].displayRow = "<tr> <td>" + nextDiff +
+            "</td><td>" + nextMsg + "</td><td>" + nextReminder + "</td></tr>";
 
     }
+}
+
+// debug code to display all reminders and timers
+function displayStatus() {
+    // debug code to show list of reminders
+    var disp_status = "<table class=p-list>";
+    var colGroup = "<colgroup> <col class='colw'><col class='colw2'><col> </colgroup>";
+    //var headers = "<th>Remaining</th><th>Message</th> <th>@ Time</th>"
+    disp_status += colGroup; // + headers;
+    for (var index = 0; index < reminders.length; index++) {
+        if (index > 0 && index < 20) {
+            disp_status = disp_status + reminders[index].displayRow;
+        }
+    }
+    disp_status += "</table>";
+    document.getElementById('scheduled').innerHTML = disp_status;
 }

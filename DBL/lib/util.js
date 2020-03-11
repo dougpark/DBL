@@ -1,3 +1,13 @@
+function isEmptyObject(obj) {
+    var name;
+    for (name in obj) {
+        if (obj.hasOwnProperty(name)) {
+            return false;
+        }
+    }
+    return true;
+}
+
 // from https://stackoverflow.com/questions/1129216/sort-array-of-objects-by-string-property-value
 // more info: https://en.wikipedia.org/wiki/Schwartzian_transform
 

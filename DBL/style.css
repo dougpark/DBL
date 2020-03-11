@@ -56,6 +56,34 @@
          0px 9px 18px rgba(0, 0, 0, .3);
  }
 
+ table {
+     border-collapse: collapse;
+     width: 100%;
+     table-layout: fixed;
+ }
+
+ th,
+ td {
+     text-align: left;
+     padding: 0px 0px 0px 10px;
+     overflow: hidden;
+     white-space: nowrap;
+     text-overflow: ellipsis;
+ }
+
+ tr:hover {
+     background-color: #505050;
+ }
+
+ .colw {
+     width: 25%;
+
+ }
+
+ .colw2 {
+     width: 52%;
+ }
+
  .backgroundBox {
      padding: 0px;
      margin: 0px;
@@ -83,20 +111,21 @@
 
      xborder: 1px solid #838383;
      xborder-style: none none solid none;
-     width: 486px;
+     width: 406px;
      top: 35px;
-     height: 40px;
-     xpadding: 5px 0px 5px 0px;
+     height: 38px;
+     xpadding: 6px 0px 4px 0px;
      position: absolute;
      background-color: #323232;
      margin: 0px;
      text-align: center;
+     padding: 2px 40px 0px 40px;
  }
 
  .scheduledBox {
      border: 1px #838383;
      border-style: solid none none none;
-     width: 466px;
+     width: 406px;
      height: 190px;
      position: absolute;
      top: 75px;
@@ -104,7 +133,7 @@
      xbackground-color: #CB8D2E;
      xbackground-color: rgba(58, 191, 49, .75);
      margin: 0px;
-     padding: 10px 0px 0px 20px;
+     padding: 10px 40px 0px 40px;
      visibility: visible;
      overflow-y: auto;
      xcolor: black;
@@ -193,7 +222,7 @@
 
  .nextAlarm {
 
-     position: absolute;
+     xposition: absolute;
      font-Size: 16px;
      color: #D3D3D3;
 
@@ -201,13 +230,12 @@
          '-apple-system',
          'Cutive Mono';
      font-Weight: 200;
-     text-Align: center;
+     xtext-Align: center;
      xleft: 50%;
-     top: 30%;
-
-     transform: translateY(-50%);
-
-     transform: translateX(-50%);
+     xtop: 30%;
+     xwidth: 100%;
+     xtransform: translateY(-45%);
+     xtransform: translateX(-50%);
 
  }
 

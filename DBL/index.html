@@ -14,12 +14,12 @@
     <script src="./timers.js"></script>
     <script src="./say.js"></script>
     <script src="./sounds.js"></script>
-    <script src="./lib/sort.js"></script>
+    <script src="./lib/util.js"></script>
     <script src="./lib/howler.js"></script>
     <script src="./main.js"></script>
 </head>
 
-<body id="backbody" scroll="no" style="overflow: hidden; " onload=init();>
+<body id="backbody" scroll="no" style="overflow: hidden; " onload=init2();>
 
     <div id="backgroundBox" class="backgroundBox">
         <div class="headerBox">
@@ -51,8 +51,6 @@
                 <img class=buttonMin onclick="newTimerButton({minute:10, message: '10 minutes are up!'})"
                     src="./assets/black-circle-10.svg" width="21" height="21" draggable="false">
 
-
-
             </span>
 
             <!-- <img class=newTimerButton onclick="newTimerButton({second: 30, message: '30 seconds are up. Ding!'})"
@@ -64,8 +62,26 @@
         </div>
 
         <div class="nextAlarmBox">
-            <span id="nextAlarm" class="nextAlarm">
-            </span>
+            <table id="nextAlarmTable" class=p-list>
+                <colgroup>
+                    <col class='colw'>
+                    <col class='colw2'>
+                    <col>
+                </colgroup>
+                <thead>
+                    <th>Remaining</th>
+                    <th>Message</th>
+                    <th>@ Time</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                </tbody>
+            </table>
         </div>
 
         <div id="scheduledBox" class="scheduledBox">
@@ -76,7 +92,23 @@
             <span id="preferences" class="preferences">
                 <b>Preferences</b> - Coming Soon. Default view, default chime, default message, 12/24 display.
                 Future: Background process, custom countdowns, click to quiet alarm, trigger BTT triggers.
+                <p></p>
+
+                <label for="clock12">12
+                    Hour Clock
+                </label><input type="checkbox" id="clock12" onclick=changeClock12()>
+                <p></p>
+                Default Chime
+                <select id="defaultChime" onchange=changeDefaultChime(this.value) style="width:160px;">
+                    <option value=0>Chime Default</option>
+                    <option value=1>Chime 1</option>
+                    <option value=2>Chime 2</option>
+                    <option value=3>Chime 3</option>
+                    <option value=4>Chime 4</option>
+                </select>
+
             </span>
+
         </div>
 
         <div id="newTimerBox" class="newTimerBox">

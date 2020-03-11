@@ -11,6 +11,7 @@
  * Mar 4, 2020 - ver 1.1 - added URL timer, made smaller, made draggable, better fonts 
  * Mar 5, 2020 - ver 1.2 - added chimes and new timer button, fixed double announcement
  * Mar 9, 2020 - ver 1.3 - new color scheme, new timer buttons, preset timmers, New and Preference paynes
+ * Mar 10, 2020 - ver 1.4 - table view layout for next alarm and scheduled alarms
  **************************************************************************************/
 "use strict"
 
@@ -20,10 +21,14 @@ var debug = false;
 var sounds = {};
 
 // list of reminders from .json file
-var reminders;
+var reminders = [];
+
+// global preferences
+var preferences = {};
 
 // called when BTT starts the floating window
 function BTTInitialize() {
+    init();
 
 };
 
@@ -40,6 +45,10 @@ function init() {
     // nice slide in from the top animation
     //document.body.classList.add("slideInDown");
 
+    // load preferences from BTT persistant string
+    loadDBLPreferences();
+    //setDefaultPreferences();
+
     // load the reminders data from .json file
     loadReminders();
 
@@ -47,7 +56,7 @@ function init() {
     window.setInterval(update, 100);
 
     // put the first clock on the screen so there is no delay
-    update(false);
+    update();
 
     // pre load sound effects audio files
     loadSounds();
@@ -64,11 +73,17 @@ function init() {
 // this is called by an interval timer to keep it up to date
 function update() {
 
-    // check for next alarm
-    updateReminders();
-
     // update the on screen time display
     updateTime();
+
+    // clear out the last alarm from the display
+    clearDisplayNextAlarm();
+
+    // don't process reminders, timers, alarms if the queue is empty
+    if (isEmptyObject(reminders)) return;
+
+    // check for next alarm
+    updateReminders();
 
     // update the on screen date display
     updateDate();
