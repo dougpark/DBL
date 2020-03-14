@@ -1,7 +1,8 @@
 // say the time and message
 function sayTime(cTime, msg) {
 
-    sounds.chime.play();
+    //sounds.chime.play();
+    playDefaultChime();
 
     // call the applescript function to speak
     //appleScript_Say("The time is " + cTime + ". " + msg);

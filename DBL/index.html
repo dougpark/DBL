@@ -12,20 +12,25 @@
     <script src="./preferences.js"></script>
     <script src="./newTimer.js"></script>
     <script src="./timers.js"></script>
+    <script src="./countDown.js"></script>
     <script src="./say.js"></script>
     <script src="./sounds.js"></script>
+    <script src="./dataStore.js"></script>
     <script src="./lib/util.js"></script>
     <script src="./lib/howler.js"></script>
     <script src="./main.js"></script>
 </head>
 
-<body id="backbody" scroll="no" style="overflow: hidden; " onload=init2();>
+<body id="backbody" scroll="no" style="overflow: hidden; " onload=initBody();>
 
     <div id="backgroundBox" class="backgroundBox">
         <div class="headerBox">
 
             <img class=createTimerButton onclick="createTimerButton()" src="./assets/add-circle-sharp.svg"
                 id="newTimerImage" width="24" height="24" draggable="false">
+
+            <img class=showCountDownButton onclick="showCountDownButton()" src="./assets/add-circle-sharp.svg"
+                id="showCountDownImage" width="24" height="24" draggable="false">
 
             <span class=buttons>
 
@@ -94,18 +99,16 @@
                 Future: Background process, custom countdowns, click to quiet alarm, trigger BTT triggers.
                 <p></p>
 
-                <label for="clock12">12
-                    Hour Clock
+                <label for="clock12">12 Hour Clock
                 </label><input type="checkbox" id="clock12" onclick=changeClock12()>
                 <p></p>
                 Default Chime
                 <select id="defaultChime" onchange=changeDefaultChime(this.value) style="width:160px;">
-                    <option value=0>Chime Default</option>
-                    <option value=1>Chime 1</option>
-                    <option value=2>Chime 2</option>
-                    <option value=3>Chime 3</option>
-                    <option value=4>Chime 4</option>
+                    <!-- options added from sounds.js -->
                 </select>
+
+                <img class=playChime onclick="playDefaultChime()" src="./assets/musical-note-sharp.svg" width="21"
+                    height="21" draggable="false">
 
             </span>
 
@@ -121,6 +124,11 @@
             <!-- <img class=addButton2 onclick="newTimerButton({second: 30, message: '30 second timer complete'})"
                 src="./assets/add-circle-sharp.svg" width="24" height="24" draggable="false">
            -->
+        </div>
+
+        <div id="countDownBox" class="countDownBox">
+            <span id="countDownTime" class="countDownTime">
+            </span>
         </div>
 
         <div class="footerBox">

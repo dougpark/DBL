@@ -12,6 +12,7 @@
  * Mar 5, 2020 - ver 1.2 - added chimes and new timer button, fixed double announcement
  * Mar 9, 2020 - ver 1.3 - new color scheme, new timer buttons, preset timmers, New and Preference paynes
  * Mar 10, 2020 - ver 1.4 - table view layout for next alarm and scheduled alarms
+ * Mar 11, 2020 - ver 1.5 - save preferences to BTT Variable, and to named trigger
  **************************************************************************************/
 "use strict"
 
@@ -26,6 +27,10 @@ var reminders = [];
 // global preferences
 var preferences = {};
 
+// for debug running in safari or BTT
+var safari = false;
+
+
 // called when BTT starts the floating window
 function BTTInitialize() {
     init();
@@ -39,14 +44,27 @@ function BTTWillCloseWindow() {
 
 };
 
-// start the clock and update it every .5 seconds
+// called from index.html onload tag
+function initBody() {
+    // for running in Safari, check if running in taller window
+    // so not running in BTT
+    if (window.innerHeight > 500) {
+        safari = true;
+        init();
+    }
+}
+
+// start the clock and update it every .1 seconds
 function init() {
 
     // nice slide in from the top animation
     //document.body.classList.add("slideInDown");
 
+    // pre load sound effects audio files, must load before loading preferences to build index.html select element
+    loadSounds();
+
     // load preferences from BTT persistant string
-    loadDBLPreferences();
+    DSloadDBLPreferences();
     //setDefaultPreferences();
 
     // load the reminders data from .json file
@@ -58,9 +76,6 @@ function init() {
     // put the first clock on the screen so there is no delay
     update();
 
-    // pre load sound effects audio files
-    loadSounds();
-
     if (debug == true) {
         debugMode();
     }
@@ -68,6 +83,7 @@ function init() {
     // bug that setting these in css not working for if statements
     document.getElementById("newTimerBox").style.visibility = "hidden";
     document.getElementById("preferencesBox").style.visibility = "hidden";
+    document.getElementById("countDownBox").style.visibility = "hidden";
 }
 
 // this is called by an interval timer to keep it up to date

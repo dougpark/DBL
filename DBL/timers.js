@@ -99,7 +99,8 @@ function newTimerButton({
 
 ) {
 
-    sounds.beep.play();
+    //sounds.beep.play();
+    playChime('beepon');
     addTimer({
         hour: hour,
         minute: minute,

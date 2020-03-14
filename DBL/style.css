@@ -176,6 +176,25 @@
      visibility: hidden;
  }
 
+ .countDownBox {
+     xborder: 1px #838383;
+     xborder-style: solid none none none;
+     width: 466px;
+     height: 190px;
+     position: absolute;
+     top: 75px;
+     display: float;
+     background-color: #000000;
+     color: black;
+     font-Family: '-apple-system',
+         'Cutive Mono';
+     font-Weight: 200;
+     text-Align: left;
+     margin: 0px;
+     padding: 10px 0px 0px 20px;
+     visibility: hidden;
+ }
+
  .footerBox {
      padding: 0px;
      margin: 0px;
@@ -362,6 +381,30 @@
      transition-duration: 4s;
  }
 
+ .playChime {
+
+     xposition: relative;
+     xmargin-right: auto;
+     xmargin-left: auto;
+     text-align: top;
+     opacity: .7;
+     xfilter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(150deg) brightness(118%) contrast(119%);
+     xtransform-origin: 0% 0%;
+     xtransform: translateY(-10%);
+ }
+
+ .playChime:hover {
+     opacity: 1;
+     xtransition-duration: 4s;
+     transform: scale(1.2);
+ }
+
+ .playChime:active {
+     opacity: 1;
+     xtransition-duration: 4s;
+     transform: scale(.9);
+ }
+
  .preferencesButton {
      position: absolute;
      left: 94%;
@@ -396,6 +439,22 @@
 
  }
 
+ .showCountDownButton {
+     position: absolute;
+     left: 5%;
+     opacity: 0.7;
+     transform: scale(1.2, 1.2);
+     filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(20deg) brightness(118%) contrast(119%);
+     xtop: 50%;
+     transform: translateY(25%);
+ }
+
+ .showCountDownButton:hover {
+     opacity: 1;
+     transition-duration: 4s;
+
+
+ }
 
 
  /* width */
