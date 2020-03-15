@@ -26,12 +26,6 @@
     <div id="backgroundBox" class="backgroundBox">
         <div class="headerBox">
 
-            <img class=createTimerButton onclick="createTimerButton()" src="./assets/add-circle-sharp.svg"
-                id="newTimerImage" width="24" height="24" draggable="false">
-
-            <img class=showCountDownButton onclick="showCountDownButton()" src="./assets/add-circle-sharp.svg"
-                id="showCountDownImage" width="24" height="24" draggable="false">
-
             <span class=buttons>
 
                 <img class=buttonSec onclick="newTimerButton({second:10, message: '10 seconds are up!'})"
@@ -58,11 +52,7 @@
 
             </span>
 
-            <!-- <img class=newTimerButton onclick="newTimerButton({second: 30, message: '30 seconds are up. Ding!'})"
-                src="./assets/add-circle-sharp.svg" width="24" height="24" draggable="false">
-           -->
-            <img class=preferencesButton onclick="preferencesButton()" src="./assets/settings-sharp.svg" width="20"
-                height="20" draggable="false">
+
 
         </div>
 
@@ -132,15 +122,29 @@
         </div>
 
         <div id="countDownBox" class="countDownBox">
-            <span id="countDownTime" class="countDownTime">
+            <span id="countDownTime" class="countDownTime">ss
             </span>
         </div>
 
-        <div class="footerBox">
+        <div id="currentTimeBox" class="currentTimeBox">
             <img class=speechButton onclick="speakNow()" src="./assets/chatbubble-ellipses-sharp.svg" width="16"
                 height="16" draggable="false">
 
             <span id="clocktime" class="clocktime"></span>
+        </div>
+
+        <div class="footerBox">
+            <img class=createTimerButton onclick="createTimerButton()" src="./assets/add-circle-sharp.svg"
+                id="newTimerImage" width="24" height="24" draggable="false">
+
+            <img class=showCountDownButton onclick="showCountDownButton()" src="./assets/add-circle-sharp.svg"
+                id="showCountDownImage" width="24" height="24" draggable="false">
+
+            <!-- <img class=newTimerButton onclick="newTimerButton({second: 30, message: '30 seconds are up. Ding!'})"
+                        src="./assets/add-circle-sharp.svg" width="24" height="24" draggable="false">
+                   -->
+            <img class=preferencesButton onclick="preferencesButton()" src="./assets/settings-sharp.svg" width="24"
+                height="24" draggable="false">
         </div>
 
     </div>

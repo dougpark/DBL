@@ -15,7 +15,7 @@
      padding: 0px;
  }
 
- .xx {
+ .xy {
      background: #d3d3d3;
      background: #323232;
      background: #505050;
@@ -179,8 +179,27 @@
  .countDownBox {
      xborder: 1px #838383;
      xborder-style: solid none none none;
-     width: 466px;
-     height: 190px;
+     width: 486px;
+     height: 200px;
+     position: absolute;
+     top: 75px;
+     display: float;
+     background-color: #000000;
+     color: black;
+     font-Family: '-apple-system',
+         'Cutive Mono';
+     font-Weight: 200;
+     text-Align: center;
+     margin: 0px;
+     xpadding: 10px 0px 0px 20px;
+     visibility: hidden;
+ }
+
+ .currentTimeBox {
+     xborder: 1px #838383;
+     xborder-style: solid none none none;
+     width: 486px;
+     height: 200px;
      position: absolute;
      top: 75px;
      display: float;
@@ -191,7 +210,7 @@
      font-Weight: 200;
      text-Align: left;
      margin: 0px;
-     padding: 10px 0px 0px 20px;
+     xpadding: 10px 0px 0px 20px;
      visibility: hidden;
  }
 
@@ -208,6 +227,7 @@
      background-color: #505050;
      border-radius: 0px 0px 6px 6px;
      margin: 0px;
+     text-align: center;
  }
 
 
@@ -223,6 +243,21 @@
      font-Weight: 200;
      letter-Spacing: -0.03em;
      display: table;
+     margin: 0 auto;
+
+ }
+
+ .countDownTime {
+
+     border: 0px dashed #f00;
+     font-Size: 32px;
+     color: #D3D3D3;
+     font-Family:
+         monospace,
+         'Cutive Mono';
+     font-Weight: 200;
+     letter-Spacing: -0.03em;
+     xdisplay: table;
      margin: 0 auto;
 
  }
@@ -405,7 +440,7 @@
      transform: scale(.9);
  }
 
- .preferencesButton {
+ xx .preferencesButton {
      position: absolute;
      left: 94%;
      opacity: .7;
@@ -439,9 +474,9 @@
 
  }
 
- .showCountDownButton {
+ xx .showCountDownButton {
      position: absolute;
-     left: 5%;
+     left: 15%;
      opacity: 0.7;
      transform: scale(1.2, 1.2);
      filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(20deg) brightness(118%) contrast(119%);

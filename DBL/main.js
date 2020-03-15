@@ -92,6 +92,9 @@ function update() {
     // update the on screen time display
     updateTime();
 
+    // update the countDown display
+    updateCountDown();
+
     // clear out the last alarm from the display
     clearDisplayNextAlarm();
 
@@ -126,6 +129,22 @@ function updateTime() {
 
     var clockTime = "" + dhour + ":" + nmin + ":" + nsec;
     document.getElementById('clocktime').innerHTML = clockTime;
+}
+
+function updateCountDown() {
+    var d = new Date();
+    var nhour = d.getHours(),
+        nmin = d.getMinutes(),
+        nsec = d.getSeconds();
+
+    if (nmin <= 9) nmin = "0" + nmin
+    var dhour = nhour; // for display only
+    if (dhour > 12) dhour = dhour - 12
+    // if (nhour <= 9) nhour = "0" + nhour
+    if (nsec <= 9) nsec = "0" + nsec
+
+    var countDown = nsec;
+    document.getElementById('countDownTime').innerHTML = countDown;
 }
 
 function updateDate() {
