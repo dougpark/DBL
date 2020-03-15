@@ -440,7 +440,7 @@
      transform: scale(.9);
  }
 
- xx .preferencesButton {
+ .preferencesButton {
      position: absolute;
      left: 94%;
      opacity: .7;
@@ -474,7 +474,7 @@
 
  }
 
- xx .showCountDownButton {
+ .showCountDownButton {
      position: absolute;
      left: 15%;
      opacity: 0.7;
