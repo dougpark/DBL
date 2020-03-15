@@ -34,6 +34,7 @@ function createDefaultPreferences() {
 function updateElements() {
     document.getElementById("clock12").checked = preferences.clock12;
     document.getElementById("defaultChime").value = preferences.defaultChime;
+    document.getElementById("defaultMessage").value = preferences.defaultMessage;
 
 }
 
@@ -50,6 +51,14 @@ async function changeDefaultChime() {
 
     let defaultChime = document.getElementById("defaultChime").value;
     preferences.defaultChime = defaultChime;
+    DSsaveDBLPreferences();
+
+};
+
+async function defaultMessageButton() {
+
+    let defaultMessage = document.getElementById("defaultMessage").value;
+    preferences.defaultMessage = defaultMessage;
     DSsaveDBLPreferences();
 
 };

@@ -456,6 +456,41 @@
 
  }
 
+ .sbutton {
+     background-color: #4CAF50;
+     /* Green */
+     border: none;
+     color: white;
+     padding: 1px 3px;
+     text-align: center;
+     text-decoration: none;
+     display: inline-block;
+     font-size: 14px;
+     margin: 2px 2px;
+     cursor: pointer;
+     position: relative;
+     transition: all 0s;
+
+ }
+
+ .sbutton:active {
+     transition: all 0s;
+     top: 1px;
+ }
+
+
+ .xbutton:hover {
+     xopacity: 1;
+     xtransition-duration: 4s;
+     transform: scale(1.2);
+ }
+
+ .xbutton:active {
+     opacity: 1;
+     transition-duration: .01s;
+     transform: scale(.9);
+ }
+
 
  /* width */
  ::-webkit-scrollbar {
