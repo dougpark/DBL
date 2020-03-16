@@ -51,13 +51,34 @@
                     src="./assets/black-circle-10.svg" width="21" height="21" draggable="false">
 
             </span>
+        </div>
 
+        <div class="footerBox">
+            <!--<img class=createTimerButton onclick="showBox(event, 'newTimerBox')" src="./assets/add-circle-sharp.svg"
+                        id="newTimerImage" width="24" height="24" draggable="false">
+        -->
+            <!--<img class=showCountDownButton onclick="showBox(event, 'countDownBox')" src="./assets/add-circle-sharp.svg"
+                        id="showCountDownImage" width="24" height="24" draggable="false">
+        -->
+            <!--<img id="scheduleBoxButton" onclick="showBox(event, 'scheduledBox')" src="./assets/add-circle-sharp.svg"
+                        width="24" height="24" draggable="false">
+        -->
+            <span class=sidepanelbt id=scheduledBoxB onclick="showBox(event, 'scheduledBox')">Scheduled</span>
+            <span class=sidepanelbt id=newTimerBoxB onclick="showBox(event, 'newTimerBox')">Add Timer </span>
+            <span class=sidepanelbt id=countDownBoxB onclick="showBox(event, 'countDownBox')">Countdown </span>
+            <span class=sidepanelbt id=currentTimeBoxB onclick="showBox(event, 'currentTimeBox')">Current Time </span>
+            <span class=sidepanelbt id=preferencesBoxB onclick="showBox(event, 'preferencesBox')">Preferences </span>
 
-
+            <!-- <img class=newTimerButton onclick="newTimerButton({second: 30, message: '30 seconds are up. Ding!'})"
+                                src="./assets/add-circle-sharp.svg" width="24" height="24" draggable="false">
+                           -->
+            <!-- <img class=preferencesButton onclick="showBox(event, 'preferencesBox')" src="./assets/settings-sharp.svg"
+                        width="24" height="24" draggable="false">
+                        -->
         </div>
 
         <div class="nextAlarmBox">
-            <table id="nextAlarmTable" class=p-list>
+            <table id="nextAlarmTable" class=p-list-h>
                 <colgroup>
                     <col class='colw'>
                     <col class='colw2'>
@@ -79,11 +100,11 @@
             </table>
         </div>
 
-        <div id="scheduledBox" class="scheduledBox">
-            <span id="scheduled" class="scheduled"></span>
+        <div id="scheduledBox" class="scheduledBox Box">
+            <span id="scheduled" class="scheduledx"></span>
         </div>
 
-        <div id="preferencesBox" class="preferencesBox">
+        <div id="preferencesBox" class="preferencesBox Box">
             <span id="preferences" class="preferences">
                 <b>Preferences</b> - Coming Soon. Default view, default chime, default message, 12/24 display.
                 Future: Background process, custom countdowns, click to quiet alarm, trigger BTT triggers.
@@ -109,7 +130,7 @@
 
         </div>
 
-        <div id="newTimerBox" class="newTimerBox">
+        <div id="newTimerBox" class="newTimerBox Box">
             <span id="add" class="add">
                 <b>New Timer</b> - Coming Soon. New timer with custom time, chime and message.
                 Future: Custom reminder groups for various activities, such as:
@@ -121,31 +142,19 @@
            -->
         </div>
 
-        <div id="countDownBox" class="countDownBox">
+        <div id="countDownBox" class="countDownBox Box">
             <span id="countDownTime" class="countDownTime">ss
             </span>
         </div>
 
-        <div id="currentTimeBox" class="currentTimeBox">
+        <div id="currentTimeBox" class="currentTimeBox Box">
             <img class=speechButton onclick="speakNow()" src="./assets/chatbubble-ellipses-sharp.svg" width="16"
                 height="16" draggable="false">
 
             <span id="clocktime" class="clocktime"></span>
         </div>
 
-        <div class="footerBox">
-            <img class=createTimerButton onclick="createTimerButton()" src="./assets/add-circle-sharp.svg"
-                id="newTimerImage" width="24" height="24" draggable="false">
 
-            <img class=showCountDownButton onclick="showCountDownButton()" src="./assets/add-circle-sharp.svg"
-                id="showCountDownImage" width="24" height="24" draggable="false">
-
-            <!-- <img class=newTimerButton onclick="newTimerButton({second: 30, message: '30 seconds are up. Ding!'})"
-                        src="./assets/add-circle-sharp.svg" width="24" height="24" draggable="false">
-                   -->
-            <img class=preferencesButton onclick="preferencesButton()" src="./assets/settings-sharp.svg" width="24"
-                height="24" draggable="false">
-        </div>
 
     </div>
 

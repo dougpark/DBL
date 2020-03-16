@@ -80,10 +80,8 @@ function init() {
         debugMode();
     }
 
-    // bug that setting these in css not working for if statements
-    document.getElementById("newTimerBox").style.visibility = "hidden";
-    document.getElementById("preferencesBox").style.visibility = "hidden";
-    document.getElementById("countDownBox").style.visibility = "hidden";
+    // set the intial view
+    document.getElementById("scheduledBoxB").click();
 }
 
 // this is called by an interval timer to keep it up to date
@@ -179,5 +177,32 @@ function debugMode() {
     // document.getElementById('clockdate').style.fontSize = '16px';
     // document.getElementById('nextAlarm').style.color = "red";
     // document.getElementById('nextAlarm').style.fontSize = '16px';
+
+}
+
+function showBox(event, newBox) {
+
+    var i, boxes, buttons;
+
+    // loop through all boxes, turn them all off
+    boxes = document.getElementsByClassName("Box");
+    for (i = 0; i < boxes.length; i++) {
+        boxes[i].style.display = "none";
+    }
+    //console.log(boxes);
+
+    // loop through all buttons, turn them all off
+    buttons = document.getElementsByClassName("sidepanelbt");
+    for (i = 0; i < buttons.length; i++) {
+        buttons[i].className = buttons[i].className.replace(" active", "");
+    }
+    //console.log(buttons);
+
+    // highlight new box
+    document.getElementById(newBox).style.display = "block";
+    document.getElementById(newBox).style.visibility = "visible";
+
+    // highlight new button
+    event.currentTarget.className += " active";
 
 }

@@ -258,8 +258,8 @@ function calcTimeToAction() {
         reminders[index].disp_nextDiff = nextDiff;
         reminders[index].disp_nextMsg = nextMsg;
         reminders[index].disp_nextRem = nextReminder;
-        reminders[index].displayRow = "<tr> <td>" + nextDiff +
-            "</td><td>" + nextMsg + "</td><td>" + nextReminder + "</td></tr>";
+        reminders[index].displayRow = "<tr> <td class=td2>" + nextDiff +
+            "</td><td class=td2>" + nextMsg + "</td><td class=td2>" + nextReminder + "</td></tr>";
 
     }
 }
