@@ -13,9 +13,14 @@
  * Mar 9, 2020 - ver 1.3 - new color scheme, new timer buttons, preset timmers, New and Preference paynes
  * Mar 10, 2020 - ver 1.4 - table view layout for next alarm and scheduled alarms
  * Mar 11, 2020 - ver 1.5 - save preferences to BTT Variable, and to named trigger
+ * Mar 17, 2020 - ver 1.6 - tabs, new visual look and feel
  **************************************************************************************/
 "use strict"
 
+// current version to display
+let version = "v1.6 Mar 17, 2020";
+
+// use only for debug mode
 var debug = false;
 
 // preload UI sound effects and chimes
@@ -48,7 +53,7 @@ function BTTWillCloseWindow() {
 function initBody() {
     // for running in Safari, check if running in taller window
     // so not running in BTT
-    if (window.innerHeight > 500) {
+    if (window.innerHeight > 350) {
         safari = true;
         init();
     }
@@ -71,7 +76,7 @@ function init() {
     loadReminders();
 
     // update the displayed clock every .1 seconds
-    window.setInterval(update, 100);
+    window.setInterval(update, 500);
 
     // put the first clock on the screen so there is no delay
     update();
@@ -87,26 +92,41 @@ function init() {
 // this is called by an interval timer to keep it up to date
 function update() {
 
+    let t0 = performance.now();
     // update the on screen time display
     updateTime();
+
+
 
     // clear out the last alarm from the display
     clearDisplayNextAlarm();
 
+
     // don't process reminders, timers, alarms if the queue is empty
     if (isEmptyObject(reminders)) return;
+
 
     // check for next alarm
     updateReminders();
 
+
+
     // update the on screen date display
     updateDate();
+
+
 
     // remove completed timers
     updateTimers();
 
+
     if (debug == true) {
         debugMode();
+    }
+
+    let t1 = performance.now() - t0;
+    if (t1 > 1.5) {
+        console.log('update took ' + t1)
     }
 }
 
@@ -187,5 +207,10 @@ function showBox(event, newBox) {
 
     // highlight new button
     event.currentTarget.className += " active";
+
+}
+
+function openSafariWindow() {
+    var myWindow = window.open("index.html", "", "dialog=yes,width=500,height=400,left=500,top=500,titlebar=no,status=no,scrollbars=no,resizable=no,menubar=no,location=no");
 
 }

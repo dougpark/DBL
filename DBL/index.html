@@ -50,16 +50,19 @@
                 <img class=buttonMin onclick="newTimerButton({minute:10, message: '10 minutes are up!'})"
                     src="./assets/black-circle-10.svg" width="21" height="21" draggable="false">
 
+                <img class=buttonMin onclick="openSafariWindow()" src="./assets/black-circle-10.svg" width="21"
+                    height="21" draggable="false">
+
             </span>
         </div>
 
-        <div class="footerBox">
+        <div class="tabBox">
 
-            <span class=tabButton id=scheduledBoxB onclick="showBox(event, 'scheduledBox')">List</span>
-            <span class=tabButton id=newTimerBoxB onclick="showBox(event, 'newTimerBox')">New </span>
-            <span class=tabButton id=countDownBoxB onclick="showBox(event, 'countDownBox')">Countdown </span>
-            <span class=tabButton id=currentTimeBoxB onclick="showBox(event, 'currentTimeBox')">Clock </span>
-            <span class=tabButton id=preferencesBoxB onclick="showBox(event, 'preferencesBox')">Preferences </span>
+            <button class=tabButton id=scheduledBoxB onclick="showBox(event, 'scheduledBox')">List</button>
+            <button class=tabButton id=newTimerBoxB onclick="showBox(event, 'newTimerBox')">New </button>
+            <button class=tabButton id=countDownBoxB onclick="showBox(event, 'countDownBox')">Countdown </button>
+            <button class=tabButton id=currentTimeBoxB onclick="showBox(event, 'currentTimeBox')">Clock </button>
+            <button class=tabButton id=preferencesBoxB onclick="showBox(event, 'preferencesBox')">Preferences </button>
 
         </div>
 
