@@ -54,30 +54,17 @@
         </div>
 
         <div class="footerBox">
-            <!--<img class=createTimerButton onclick="showBox(event, 'newTimerBox')" src="./assets/add-circle-sharp.svg"
-                        id="newTimerImage" width="24" height="24" draggable="false">
-        -->
-            <!--<img class=showCountDownButton onclick="showBox(event, 'countDownBox')" src="./assets/add-circle-sharp.svg"
-                        id="showCountDownImage" width="24" height="24" draggable="false">
-        -->
-            <!--<img id="scheduleBoxButton" onclick="showBox(event, 'scheduledBox')" src="./assets/add-circle-sharp.svg"
-                        width="24" height="24" draggable="false">
-        -->
-            <span class=sidepanelbt id=scheduledBoxB onclick="showBox(event, 'scheduledBox')">Scheduled</span>
-            <span class=sidepanelbt id=newTimerBoxB onclick="showBox(event, 'newTimerBox')">Add Timer </span>
-            <span class=sidepanelbt id=countDownBoxB onclick="showBox(event, 'countDownBox')">Countdown </span>
-            <span class=sidepanelbt id=currentTimeBoxB onclick="showBox(event, 'currentTimeBox')">Current Time </span>
-            <span class=sidepanelbt id=preferencesBoxB onclick="showBox(event, 'preferencesBox')">Preferences </span>
 
-            <!-- <img class=newTimerButton onclick="newTimerButton({second: 30, message: '30 seconds are up. Ding!'})"
-                                src="./assets/add-circle-sharp.svg" width="24" height="24" draggable="false">
-                           -->
-            <!-- <img class=preferencesButton onclick="showBox(event, 'preferencesBox')" src="./assets/settings-sharp.svg"
-                        width="24" height="24" draggable="false">
-                        -->
+            <span class=tabButton id=scheduledBoxB onclick="showBox(event, 'scheduledBox')">List</span>
+            <span class=tabButton id=newTimerBoxB onclick="showBox(event, 'newTimerBox')">New </span>
+            <span class=tabButton id=countDownBoxB onclick="showBox(event, 'countDownBox')">Countdown </span>
+            <span class=tabButton id=currentTimeBoxB onclick="showBox(event, 'currentTimeBox')">Clock </span>
+            <span class=tabButton id=preferencesBoxB onclick="showBox(event, 'preferencesBox')">Preferences </span>
+
         </div>
 
         <div class="nextAlarmBox">
+            <!-- don't mess with this, it is updated via javascript -->
             <table id="nextAlarmTable" class=p-list-h>
                 <colgroup>
                     <col class='colw'>
@@ -115,7 +102,7 @@
                 <p></p>
                 Default Chime
                 <select id="defaultChime" onchange=changeDefaultChime(this.value) style="width:160px;">
-                    <!-- options added from sounds.js -->
+                    <!-- options added from via javascript in sounds.js -->
                 </select>
 
                 <img class=playChime onclick="playDefaultChime()" src="./assets/musical-note-sharp.svg" width="21"

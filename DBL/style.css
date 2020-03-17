@@ -586,7 +586,7 @@
      background: #555;
  }
 
- .sidepanelbt {
+ .tabButton {
      display: inline;
 
      width: 50px;
@@ -604,7 +604,7 @@
      xline-height: -5px;
      xfont-weight: 500;
      color: #D3D3D3;
-     padding-left: 10px;
+     padding-left: 9px;
      padding-right: 9px;
      padding-top: 8px;
      padding-bottom: 5px;
@@ -615,7 +615,7 @@
      border-bottom-right-radius: 6px;
  }
 
- .sidepanelbt.active {
+ .tabButton.active {
      color: black;
      xtext-decoration: underline;
 
@@ -624,7 +624,7 @@
      xwidth: 100%;
  }
 
- .sidepanelbt:hover {
+ .tabButton:hover {
      transform: scale(1.2);
 
  }

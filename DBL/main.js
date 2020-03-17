@@ -192,7 +192,7 @@ function showBox(event, newBox) {
     //console.log(boxes);
 
     // loop through all buttons, turn them all off
-    buttons = document.getElementsByClassName("sidepanelbt");
+    buttons = document.getElementsByClassName("tabButton");
     for (i = 0; i < buttons.length; i++) {
         buttons[i].className = buttons[i].className.replace(" active", "");
     }
