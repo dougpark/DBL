@@ -105,7 +105,10 @@ function updateReminders() {
     displayStatus();
 
     // displays the status of the next reminder that is due
-    displaynextAlarm();
+    let index = displaynextAlarm();
+
+    // update the countDown display
+    updateCountDown(index);
 
     // reset the complete flag so tomorrows reminders will work
     resetCompleteFlag();
@@ -113,7 +116,11 @@ function updateReminders() {
 
 }
 
+function updateCountDown(index) {
 
+    let countDown = reminders[index].disp_countDown;
+    document.getElementById('countDownTime').innerHTML = countDown;
+}
 
 function resetCompleteFlag() {
     // loop through reminders to determine which ones are tomorrow
@@ -193,6 +200,8 @@ function displaynextAlarm() {
     table.rows[1].cells[1].innerHTML = reminders[index].disp_nextMsg;
     table.rows[1].cells[2].innerHTML = reminders[index].disp_nextRem;
 
+    return index;
+
 }
 
 // calculates time to alarm for all reminders and timers
@@ -253,7 +262,21 @@ function calcTimeToAction() {
         nextReminder = "@ " + nextRemTime;
         //}
 
+        let disp_countDown = "";
+        if (hours > 0) {
+            disp_countDown = hours + ":" + minutes + ":" + seconds;
+        } else if (minutes > 0) {
+            disp_countDown = minutes + ":" + seconds;
+        } else {
+            disp_countDown = seconds;
+        }
+
         // set display atribute here
+        reminders[index].disp_countDown = disp_countDown;
+        reminders[index].disp_hourRem = hours;
+        reminders[index].disp_minutesRem = minutes;
+        reminders[index].disp_secondsRem = seconds;
+
         reminders[index].display = nextAlarm;
         reminders[index].disp_nextDiff = nextDiff;
         reminders[index].disp_nextMsg = nextMsg;

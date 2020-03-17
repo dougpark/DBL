@@ -201,17 +201,17 @@
      xborder-style: solid none none none;
      width: 486px;
      height: 200px;
-     position: absolute;
+     position: relative;
      top: 75px;
-     display: float;
+     xdisplay: float;
      background-color: #CB8D2E;
      color: black;
      font-Family: '-apple-system',
          'Cutive Mono';
      font-Weight: 200;
-     text-Align: center;
+     xtext-Align: center;
      margin: 0px;
-     xpadding: 10px 0px 0px 20px;
+     xpadding-top: 10%;
      visibility: hidden;
  }
 
@@ -256,9 +256,10 @@
 
 
  .clocktime {
-
+     position: absolute;
+     top: 30px;
      border: 0px dashed #f00;
-     font-Size: 32px;
+     font-Size: 105px;
      color: black;
      font-Family:
          monospace,
@@ -267,21 +268,23 @@
      letter-Spacing: -0.03em;
      display: table;
      margin: 0 auto;
-
  }
 
  .countDownTime {
 
      border: 0px dashed #f00;
-     font-Size: 32px;
+     font-Size: 105px;
      color: black;
      font-Family:
          monospace,
          'Cutive Mono';
      font-Weight: 200;
      letter-Spacing: -0.03em;
-     xdisplay: table;
-     margin: 0 auto;
+     position: absolute;
+     top: 20%;
+     left: 50%;
+     transform: translateY(-50%);
+     transform: translateX(-50%);
 
  }
 
