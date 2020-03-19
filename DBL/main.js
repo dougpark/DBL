@@ -85,6 +85,9 @@ function init() {
         debugMode();
     }
 
+    // put the version info on the preferences tab
+    document.getElementById('version').innerHTML = version;
+
     // set the intial view
     document.getElementById("scheduledBoxB").click();
 }

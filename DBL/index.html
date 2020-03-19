@@ -104,7 +104,7 @@
                 </label><input type="checkbox" id="clock12" onclick=changeClock12()>
                 <p></p>
                 Default Chime
-                <select id="defaultChime" onchange=changeDefaultChime(this.value) style="width:160px;">
+                <select id="defaultChime" class=iput onchange=changeDefaultChime(this.value) style="width:160px;">
                     <!-- options added from via javascript in sounds.js -->
                 </select>
 
@@ -113,8 +113,10 @@
 
                 <p></p>
                 Default Message:
-                <input id="defaultMessage">
-                <button type="button" class="sbutton" onclick="defaultMessageButton()">Save</button>
+                <input id="defaultMessage" type="text" class=iput>
+                <button type="button" class=" iput" onclick="defaultMessageButton()">Save</button>
+
+                <span id="version" class="version"></span>
 
             </span>
 
