@@ -129,7 +129,7 @@ function update() {
 
     let t1 = performance.now() - t0;
     if (t1 > 1.5) {
-        console.log('update took ' + t1)
+        //console.log('update took ' + t1)
     }
 }
 

@@ -3,6 +3,10 @@ function loadSounds() {
 
     // pre load sound effects audio files
     let soundList = [{
+            "id": "none",
+            "name": "None",
+            "loc": 'none.wav'
+        }, {
             "id": "marimba",
             "name": "Marimba",
             "loc": './assets/tones-wav/music_marimba_chord.wav'
@@ -50,10 +54,12 @@ function loadSounds() {
         let loc = soundList[index].loc;
 
         // create a Howl sound object for each sound in the soundList
-        sounds[id] = new Howl({
-            src: loc,
-            preload: true
-        });
+        if (id != 'none') {
+            sounds[id] = new Howl({
+                src: loc,
+                preload: true
+            });
+        }
 
         // add UI drop down list for default chime
         let opt = document.createElement("option"); // create option element
@@ -71,7 +77,9 @@ function loadSounds() {
 
 
 function playChime(chime) {
-    sounds[chime].play();
+    if (chime != 'none') {
+        sounds[chime].play();
+    }
 }
 
 function playDefaultChime() {
