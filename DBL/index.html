@@ -96,12 +96,13 @@
 
         <div id="preferencesBox" class="preferencesBox Box">
             <span id="preferences" class="preferences">
-                <b>Preferences</b> - Coming Soon. Default view, default chime, default message, 12/24 display.
+                <b>Preferences</b> - Coming Soon. Default view, 12/24 display.
                 Future: Background process, custom countdowns, click to quiet alarm, trigger BTT triggers.
                 <p></p>
 
-                <label for="clock12">12 Hour Clock
-                </label><input type="checkbox" id="clock12" onclick=changeClock12()>
+                <label for="clock12" class="clock12">12 Hour Clock
+                </label><input type="checkbox" id="clock12" class="clock12" onclick=changeClock12()>
+
                 <p></p>
                 Default Chime
                 <select id="defaultChime" class=iput onchange=changeDefaultChime(this.value) style="width:160px;">
@@ -124,10 +125,24 @@
 
         <div id="newTimerBox" class="newTimerBox Box">
             <span id="add" class="add">
-                <b>New Timer</b> - Coming Soon. New timer with custom time, chime and message.
-                Future: Custom reminder groups for various activities, such as:
-                Gym workout, meal planning, nightime routine, morning routine, practice sessions.
             </span>
+            New Timer:<br>
+            <select id="newChime" class=iput onchange=setNewChime(this.value) style="width:120px;" tabindex="1">
+                <!-- options added from via javascript in sounds.js -->
+            </select>
+
+            <img class=playChime onclick="playNewChime()" src="./assets/musical-note-sharp.svg" width="21" height="21"
+                draggable="false" tabindex="2">
+
+
+            <input id="newMessage" type="text" class=iput value="Timer 1" tabindex="3">
+            <input id="newHour" type="text" class=iput style="width:15px;" value="00" tabindex="4">
+            :
+            <input id="newMinute" type="text" class=iput style="width:15px;" value="00" tabindex="5">
+            :
+            <input id="newSecond" type="text" class=iput style="width:15px;" value="30" tabindex="6">
+            <button type="button" class=" iput" onclick="newTimerButton()" tabindex="7">Start</button>
+
 
             <!-- <img class=addButton2 onclick="newTimerButton({second: 30, message: '30 second timer complete'})"
                 src="./assets/add-circle-sharp.svg" width="24" height="24" draggable="false">

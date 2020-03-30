@@ -1,8 +1,10 @@
 :root {
-    --main-bg-color: #336699;
+    --main-bg-color: #cb8d2e;
+    x#336699;
     --main-bg2-color: #323232;
     --main-bg3-color: #222222;
-    --main-text-color: #eeeeee;
+    --main-text-color: black;
+    --main-text2-color: #d3d3d3;
 
 }
 
@@ -83,13 +85,14 @@ xbdbg {
 .iput {
     border: 0px solid black;
     border-radius: 4px;
-    background-color: var(--main-bg-color);
+    color: var(--main-text2-color);
+    background-color: var(--main-bg2-color);
 }
 
 .iput:active {
     transition: all 0s;
     top: 1px;
-    color: var(--main-text-color);
+    color: var(--main-text2-color);
 }
 
 table {
@@ -159,6 +162,7 @@ tr:hover {
     width: 406px;
     height: 38px;
     xborder: 1px solid #838383;
+    color: var(--main-text2-color);
     background-color: var(--main-bg3-color);
     padding: 2px 40px 0px 40px;
 }
@@ -192,6 +196,10 @@ tr:hover {
     padding: 10px 0px 0px 20px;
     visibility: hidden;
 
+}
+
+.clock12 {
+    visibility: hidden;
 }
 
 .newTimerBox {
@@ -345,7 +353,7 @@ tr:hover {
 .p-list-h {
 
     font-Size: 14px;
-    color: var(--main-text-color);
+    color: var(--main-text2-color);
     xcolor: black;
     font-Family: '-apple-system',
         'Cutive Mono';
@@ -606,7 +614,7 @@ tr:hover {
     font-Family: '-apple-system',
         'Cutive Mono';
 
-    color: var(--main-text-color);
+    color: var(--main-text2-color);
     padding-left: 9px;
     padding-right: 9px;
     padding-bottom: 5px;

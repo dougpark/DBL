@@ -44,6 +44,7 @@ function loadSounds() {
     ];
 
     let defaultChime = document.getElementById("defaultChime");
+    let newChime = document.getElementById("newChime");
     for (var index = 0; index < soundList.length; index++) {
         let id = soundList[index].id;
         let loc = soundList[index].loc;
@@ -59,6 +60,12 @@ function loadSounds() {
         opt.value = soundList[index].id;
         opt.innerHTML = soundList[index].name;
         defaultChime.append(opt); // add option to the DOM
+
+        // add UI dropdown list for New Timer
+        let opt2 = document.createElement("option"); // create option element
+        opt2.value = soundList[index].id;
+        opt2.innerHTML = soundList[index].name;
+        newChime.append(opt2);
     }
 }
 
