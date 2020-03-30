@@ -12,13 +12,13 @@
  * Mar 5, 2020 - ver 1.2 - added chimes and new timer button, fixed double announcement
  * Mar 9, 2020 - ver 1.3 - new color scheme, new timer buttons, preset timmers, New and Preference paynes
  * Mar 10, 2020 - ver 1.4 - table view layout for next alarm and scheduled alarms
- * Mar 11, 2020 - ver 1.5 - save preferences to BTT Variable, and to named trigger
- * Mar 17, 2020 - ver 1.6 - tabs, new visual look and feel
+ * Mar 11, 2020 - ver 1.4.1 - save preferences to BTT Variable, and to named trigger
+ * Mar 30, 2020 - ver 1.4.2 - tabs, new visual look and feel, new timer
  **************************************************************************************/
 "use strict"
 
 // current version to display
-let version = "v1.6 Mar 17, 2020";
+let version = "v1.4.2 Mar 30, 2020";
 
 // use only for debug mode
 var debug = false;

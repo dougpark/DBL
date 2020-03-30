@@ -5,7 +5,7 @@ function loadSounds() {
     let soundList = [{
             "id": "none",
             "name": "None",
-            "loc": 'none.wav'
+            "loc": ''
         }, {
             "id": "marimba",
             "name": "Marimba",

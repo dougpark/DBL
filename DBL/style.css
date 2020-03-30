@@ -82,6 +82,27 @@ xbdbg {
         0px 9px 18px rgba(0, 0, 0, .3);
 }
 
+.iputButton {
+    display: inline-block;
+    border: 0px solid black;
+    border-radius: 4px;
+    color: var(--main-text2-color);
+    background-color: var(--main-bg2-color);
+
+}
+
+.iputButton:hover {
+    background-color: var(--main-text2-color);
+    color: var(--main-text-color);
+}
+
+.iputButton:active {
+    background-color: var(--main-text-color);
+    color: var(--main-text2-color);
+    xbox-shadow: 0 5px #666;
+    transform: translateY(2px);
+}
+
 .iput {
     border: 0px solid black;
     border-radius: 4px;
