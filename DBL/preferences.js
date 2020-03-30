@@ -29,20 +29,18 @@ function updateElements() {
     document.getElementById("newHour").value = preferences.newHour;
     document.getElementById("newMinute").value = preferences.newMinute;
     document.getElementById("newSecond").value = preferences.newSecond;
-
-
 }
 
 
 
-async function changeClock12() {
+async function setClock12() {
 
     let clock12 = document.getElementById("clock12").checked;
     preferences.clock12 = clock12;
     DSsaveDBLPreferences();
 };
 
-async function changeDefaultChime() {
+async function setDefaultChime() {
 
     let defaultChime = document.getElementById("defaultChime").value;
     preferences.defaultChime = defaultChime;
@@ -50,7 +48,7 @@ async function changeDefaultChime() {
 
 };
 
-async function defaultMessageButton() {
+async function setDefaultMessage() {
 
     let defaultMessage = document.getElementById("defaultMessage").value;
     preferences.defaultMessage = defaultMessage;

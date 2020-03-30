@@ -94,6 +94,7 @@ function newTimerButton({
         hour = 0,
         minute = 0,
         second = 0,
+        chime = preferences.defaltChime,
         message = preferences.defaultMessage
     }
 
@@ -106,6 +107,6 @@ function newTimerButton({
         minute: minute,
         second: second,
         message: message,
-        chime: ""
+        chime: chime
     });
 }

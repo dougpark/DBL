@@ -66,7 +66,7 @@ function actionReminders() {
                 reminders[index].complete = true;
 
                 if (reminder.type == "speak") {
-                    sayTime(time, reminder.message);
+                    sayTime(time, reminder.message, reminder.chime);
                 } else if (reminder.type == "chime") {
                     //playChime(time, reminder.chime);
                 } else if (reminder.type == "both") {
@@ -259,7 +259,7 @@ function calcTimeToAction() {
 
         var kind = reminders[index].kind;
         //if (kind == undefined || kind == "reminder") {
-        nextReminder = "@ " + nextRemTime;
+        nextReminder = nextRemTime;
         //}
 
         let disp_countDown = "";

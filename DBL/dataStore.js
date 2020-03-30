@@ -5,10 +5,44 @@ function DSloadDBLPreferences() {
         SafariloadDBLPreferences();
 
     } else { // running in BTT
-        BTTloadDBLPreferences();
+        //BTTloadDBLPreferences(); // load from BTT variable
+        BTTloadDBLPreferencesFromTrigger(); // load from trigger
     }
-
 }
+
+// save preferences to dataStore
+function DSsaveDBLPreferences() {
+    // if running in Safari
+    if (safari == true) {
+        SafarisaveDBLPreferences();
+    } else { // running in BTT
+        //BTTsaveDBLPreferences(); // save to BTT variable
+        BTTsaveDBLPreferencesToTrigger(); // save to trigger
+    }
+}
+
+
+// load preferences from BTT Trigger
+async function BTTloadDBLPreferencesFromTrigger() {
+
+    // get the trigger details from BTT
+    let triggerJSONString = await callBTT('get_trigger', {
+        uuid: 'DC7BA45E-EB3E-4EBE-82BF-DD396003BA28'
+    })
+
+    // get the needed element
+    let result = JSON.parse(triggerJSONString).BTTInlineAppleScript;
+
+    // strange, have to parse again to get a usable js object
+    let result2 = JSON.parse(result);
+
+    // load preferences object
+    preferences = result2;
+
+    // update UI elements
+    updateElements();
+
+};
 
 // load prefs from Safari local storage
 function SafariloadDBLPreferences() {
@@ -36,32 +70,6 @@ async function BTTloadDBLPreferences() {
 
 }
 
-// save preferences to dataStore
-function DSsaveDBLPreferences() {
-    // if running in Safari
-    if (safari == true) {
-        SafarisaveDBLPreferences();
-    } else { // running in BTT
-        BTTsaveDBLPreferences();
-        BTTsaveDBLPreferencesToTrigger(); // test saving to trigger info
-    }
-}
-
-function SafarisaveDBLPreferences() {
-    localStorage.setItem("DBLPrefString", JSON.stringify(preferences));
-}
-
-// save preference values to BTT string variable
-async function BTTsaveDBLPreferences() {
-    let text = JSON.stringify(preferences);
-    callBTT('set_persistent_string_variable', {
-        variable_name: 'DBLPrefString',
-        to: text
-    });
-
-}
-
-
 // save preferences to BTT Trigger
 async function BTTsaveDBLPreferencesToTrigger() {
 
@@ -78,32 +86,19 @@ async function BTTsaveDBLPreferencesToTrigger() {
 
 };
 
-// load preferences from BTT Trigger
-async function BTTloadDBLPreferencesToTrigger() {
+function SafarisaveDBLPreferences() {
+    localStorage.setItem("DBLPrefString", JSON.stringify(preferences));
+}
 
-    // get the trigger details from BTT
-    let triggerJSONString = await callBTT('get_trigger', {
-        uuid: 'DC7BA45E-EB3E-4EBE-82BF-DD396003BA28'
-    })
+// save preference values to BTT string variable
+async function BTTsaveDBLPreferences() {
+    let text = JSON.stringify(preferences);
+    callBTT('set_persistent_string_variable', {
+        variable_name: 'DBLPrefString',
+        to: text
+    });
 
-    // get the needed element
-    let result = JSON.parse(triggerJSONString).BTTInlineAppleScript;
-
-    // strange, have to parse again to get a usable js object
-    let result2 = JSON.parse(result);
-
-    // uncomment to actually use
-    //preferences = result2;
-
-};
-
-
-
-
-
-
-
-
+}
 
 
 

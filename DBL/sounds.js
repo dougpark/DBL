@@ -80,3 +80,10 @@ function playDefaultChime() {
     playChime(s);
 
 }
+
+function playNewChime() {
+
+    var s = preferences.newChime;
+    playChime(s);
+
+}
