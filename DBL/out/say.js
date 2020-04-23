@@ -43,6 +43,8 @@ function speakNow() {
 // appleScript script to say the text
 function appleScript_Say(text) {
     return __awaiter(this, void 0, void 0, function* () {
+        if (safari)
+            return;
         let appleScript = `
     set voiceText to "` + text + `"
     say voiceText
