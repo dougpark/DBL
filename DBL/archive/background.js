@@ -1,3 +1,9 @@
+/**
+ *
+ *
+ * @param {*} requestPath
+ * @returns
+ */
 async function bttRequest(requestPath) {
     const response = await fetch(requestPath);
     const responseText = await response.text();
@@ -22,6 +28,11 @@ async function getCurrentlyPlayingSong() {
 
 var serverRunning = false;
 
+/**
+ *
+ *
+ * @returns
+ */
 async function checkDBLServer() {
 
     let aliveTime = await callBTT('get_string_variable', {
@@ -30,6 +41,12 @@ async function checkDBLServer() {
     return aliveTime;
 }
 
+/**
+ *
+ *
+ * @param {*} aliveTime
+ * @returns
+ */
 async function statusDBLServer(aliveTime) {
 
     //console.log('aliveTime= ' + aliveTime);

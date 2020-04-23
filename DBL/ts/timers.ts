@@ -24,7 +24,10 @@ function addTimer(timer) {
     timer.second = nextTime.getSeconds();
 
     // add to reminders queue
-    reminders.push(timer)
+    reminders.push(timer);
+
+    // save reminders
+    dsRemind.save(reminders);
 
     if (debug == true) {
         //var show = nhour + ":" + nmin + ":" + nsec + " " + timer.message;
@@ -70,15 +73,19 @@ function updateTimers() {
         return
     }
 
-    var newArray = [];
+    let newArray = [];
+    let needsUpdate = false;
     for (var index = 0; index < reminders.length; index++) {
-        reminder = reminders[index];
+        var reminder = reminders[index];
 
         if (reminder.kind == undefined) {
             reminder.kind = "reminder";
         }
 
-        if (reminder.kind == 'timer' && reminder.complete == true) {
+        if ((reminder.kind == 'timer' && reminder.complete == true) ||
+            (reminder.kind == 'timer' && reminder.okDelete == true) ||
+            (reminder.kind == 'timer' && timerClear == true)) {
+            needsUpdate = true;
             //console.log('removing timer' + reminder.message)
             //console.log(reminder)
 
@@ -87,16 +94,21 @@ function updateTimers() {
         }
     }
     reminders = newArray;
+
+    // save updated reminders
+    if (needsUpdate == true) {
+        dsRemind.save(reminders);
+    }
 }
 
 
 function newTimerButton({
-        hour = 0,
-        minute = 0,
-        second = 0,
-        chime = preferences.defaltChime,
-        message = preferences.defaultMessage
-    }
+    hour = 0,
+    minute = 0,
+    second = 0,
+    chime = preferences.defaultChime,
+    message = preferences.defaultMessage
+}
 
 ) {
 
@@ -109,4 +121,6 @@ function newTimerButton({
         message: message,
         chime: chime
     });
+
+    showTimerTab();
 }

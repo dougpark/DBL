@@ -24,11 +24,11 @@ function sortByAttribute(array, ...attrs) {
     });
     // schwartzian transform idiom implementation. aka: "decorate-sort-undecorate"
     return array.map(item => {
-            return {
-                src: item,
-                compareValues: predicates.map(predicate => predicate.getter(item))
-            };
-        })
+        return {
+            src: item,
+            compareValues: predicates.map(predicate => predicate.getter(item))
+        };
+    })
         .sort((o1, o2) => {
             let i = -1,
                 result = 0;
@@ -40,4 +40,8 @@ function sortByAttribute(array, ...attrs) {
             return result;
         })
         .map(item => item.src);
+}
+
+function openSafariWindow() {
+    var myWindow = window.open("index.html", "", "dialog=yes,width=500,height=400,left=500,top=500,titlebar=no,status=no,scrollbars=no,resizable=no,menubar=no,location=no");
 }

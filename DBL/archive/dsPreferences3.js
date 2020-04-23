@@ -110,8 +110,8 @@ async function test2() {
     })
     let settingsresult = JSON.parse(triggerJSONString).BTTTriggerConfig.BTTHUDDetailText;
     let obj = JSON.parse(settingsresult);
-    console.log(obj);
-    console.log(obj[0].hour);
+    //console.log(obj);
+    //console.log(obj[0].hour);
 
     // let removeq = settingsresult.slice(1, -1)
     // let firstp = removeq.split(":", 2).join(":") + ":"

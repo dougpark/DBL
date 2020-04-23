@@ -1,11 +1,42 @@
-:root {
-    --main-bg-color: #cb8d2e;
-    x#336699;
-    --main-bg2-color: #323232;
-    --main-bg3-color: #222222;
-    --main-text-color: black;
-    --main-text2-color: #d3d3d3;
+@font-face {
+    font-family: Roboto-Light;
+    src: url(./assets/fonts/Roboto/Roboto-Light.ttf
+);
+}
 
+@font-face {
+    font-family: secrcode;
+    src: url(./assets/fonts/secret_code/secrcode.ttf
+);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+:xroot {
+    --main-bg-color: #58A4B0;
+    --main-bg2-color: #373F51;
+    --main-bg3-color: #5D6772;
+    --main-text-color: #1B1B1E;
+    --main-text2-color: #D8DBE2;
+
+}
+
+/* colors are set through javascript in Colors.js */
+:root {
+    --main-bg-color: #505050;
+    --main-bg2-color: #505050;
+    --main-bg3-color: #505050;
+    --main-text-color: #505050;
+    --main-text2-color: #505050;
+    --main-font: Roboto-Light, 'Arial', sans-serif;
+    --main-mono-font: secrcode, 'Courier New', monospace;
+
+    --main-height: 210px;
+    --main-width: 500px;
 }
 
 html {
@@ -13,12 +44,16 @@ html {
     cursor: default;
     background-color: clear;
     color: var(--main-text-color);
+    font-Family: var(--main-font);
+    font-weight: 100;
+    box-sizing: border-box;
 }
 
 body {
     height: 100%;
     margin: 0px;
     padding: 0px;
+
     color: var(--main-text-color);
 }
 
@@ -82,6 +117,13 @@ xbdbg {
         0px 9px 18px rgba(0, 0, 0, .3);
 }
 
+.tablePref:hover,
+.tablePref {
+    color: var(--main-text-color);
+    background-color: var(--main-bg-color);
+}
+
+.colorButton,
 .iputButton {
     display: inline-block;
     border: 0px solid black;
@@ -91,11 +133,13 @@ xbdbg {
 
 }
 
+.colorButton:hover,
 .iputButton:hover {
     background-color: var(--main-text2-color);
     color: var(--main-text-color);
 }
 
+.colorButton:active,
 .iputButton:active {
     background-color: var(--main-text-color);
     color: var(--main-text2-color);
@@ -106,6 +150,8 @@ xbdbg {
 .iput {
     border: 0px solid black;
     border-radius: 4px;
+    font-Family: var(--main-font);
+    font-Size: 14px;
     color: var(--main-text2-color);
     background-color: var(--main-bg2-color);
 }
@@ -117,15 +163,13 @@ xbdbg {
 }
 
 table {
+    font-weight: normal;
     border-collapse: collapse;
-    xwidth: 100%;
-    xtable-layout: fixed;
-    xcolor: inherit;
-
 }
 
-th,
-td {
+.th1,
+.td1 {
+    xfont-weight: normal;
     text-align: left;
     padding: 0px 0px 0px 10px;
     overflow: hidden;
@@ -134,18 +178,18 @@ td {
     xcolor: #d3d3d3;
 }
 
-td2 {
+.td2 {
     text-align: left;
     padding: 0px 0px 0px 10px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    xcolor: black;
 }
 
 
+.normal {}
 
-tr:hover {
+.tr2:hover {
     background-color: #505050;
     color: #d3d3d3;
 }
@@ -160,7 +204,7 @@ tr:hover {
 }
 
 .backgroundBox {
-    width: 486px;
+    width: var(--main-width);
     height: 315px;
     xborder: 2px var(--main-text-color);
     background-color: var(--main-bg2-color);
@@ -169,8 +213,8 @@ tr:hover {
 
 .headerBox {
     position: absolute;
-    xborder: 0px dashed #fff;
-    width: 486px;
+    xborder: 1px dashed #fff;
+    width: var(--main-width);
     height: 40px;
     background-color: var(--main-bg2-color);
     border-radius: 6px 6px 0px 0px;
@@ -179,8 +223,8 @@ tr:hover {
 
 .nextAlarmBox {
     position: absolute;
-    top: 35px;
-    width: 406px;
+    top: 40px;
+    width: var(--main-width);
     height: 38px;
     xborder: 1px solid #838383;
     color: var(--main-text2-color);
@@ -191,14 +235,14 @@ tr:hover {
 .scheduledBox {
     position: absolute;
     top: 75px;
-    width: 406px;
-    height: 190px;
+    width: var(--main-width);
+    height: var(--main-height);
     color: var(--main-text-color);
     xborder: 0px #838383;
     xborder-style: solid none none none;
     background-color: var(--main-bg-color);
     padding: 10px 40px 0px 40px;
-    visibility: visible;
+    visibility: hidden;
     overflow-y: auto;
 
 }
@@ -206,13 +250,12 @@ tr:hover {
 .preferencesBox {
     xborder: 1px #838383;
     xborder-style: solid none none none;
-    width: 466px;
-    height: 190px;
+    width: var(--main-width);
+    height: var(--main-height);
     position: absolute;
     top: 75px;
     display: float;
     background-color: var(--main-bg-color);
-    xbackground-color: var(--main-bg2-color);
     margin: 0px;
     padding: 10px 0px 0px 20px;
     visibility: hidden;
@@ -226,16 +269,14 @@ tr:hover {
 .newTimerBox {
     xborder: 1px #838383;
     xborder-style: solid none none none;
-    width: 466px;
-    height: 190px;
+    width: var(--main-width);
+    height: var(--main-height);
     position: absolute;
     top: 75px;
     display: float;
+    font-size: 14px;
     background-color: var(--main-bg-color);
     color: var(--main-text-color);
-    font-Family: '-apple-system',
-        'Cutive Mono';
-    font-Weight: 200;
     text-Align: left;
     margin: 0px;
     padding: 10px 0px 0px 20px;
@@ -243,29 +284,25 @@ tr:hover {
 }
 
 .countDownBox {
-    position: relative;
-    width: 486px;
-    height: 200px;
+    position: absolute;
+    width: var(--main-width);
+    height: var(--main-height);
     top: 75px;
     background-color: var(--main-bg-color);
     color: var(--main-text-color);
-    font-Family: '-apple-system',
-        'Cutive Mono';
-    font-Weight: 200;
     visibility: hidden;
+    padding-top: 10px;
 }
 
 .currentTimeBox {
     position: relative;
-    width: 486px;
-    height: 200px;
+    width: var(--main-width);
+    height: var(--main-height);
     top: 75px;
     background-color: var(--main-bg-color);
     color: var(--main-text-color);
-    font-Family: '-apple-system',
-        'Cutive Mono';
-    font-Weight: 200;
     visibility: hidden;
+    padding-top: 10px;
 }
 
 .clocktime {
@@ -273,11 +310,7 @@ tr:hover {
     xborder: 0px dashed #f00;
     font-Size: 105px;
     color: var(--main-text-color);
-    font-Family:
-        monospace,
-        'Cutive Mono';
-    font-Weight: 200;
-    letter-Spacing: -0.03em;
+    font-Family: var(--main-font);
     top: 20%;
     left: 50%;
     transform: translateY(-50%);
@@ -289,11 +322,7 @@ tr:hover {
     xborder: 0px dashed #f00;
     font-Size: 105px;
     color: var(--main-text-color);
-    font-Family:
-        monospace,
-        'Cutive Mono';
-    font-Weight: 200;
-    letter-Spacing: -0.03em;
+    font-Family: var(--main-font);
     top: 20%;
     left: 50%;
     transform: translateY(-50%);
@@ -301,29 +330,41 @@ tr:hover {
 
 }
 
-.version {
+.countDownMsg {
     position: absolute;
     xborder: 0px dashed #f00;
-    font-Size: 8px;
+    font-Size: 20px;
     color: var(--main-text-color);
-    font-Family: '-apple-system',
-        monospace,
-        'Cutive Mono';
-    font-Weight: 200;
-    letter-Spacing: -0.03em;
-    top: 0%;
-    left: 80%;
+    font-Family: var(--main-font);
+    top: 70%;
+    left: 50%;
+    transform: translateY(-50%);
+    transform: translateX(-50%);
+}
+
+.speakCountDown {
+    position: absolute;
+    xborder: 0px dashed #f00;
+    font-Size: 14px;
+    color: var(--main-text-color);
+    font-Family: var(--main-font);
+    top: 15%;
+    left: 79%;
+    transform: translateY(-50%);
+    transform: translateX(-50%);
 
 }
 
-.clockdate {
+.version {
+    xposition: absolute;
+    xborder: 0px dashed #f00;
+    font-Size: 10px;
+    color: var(--main-text-color);
+}
 
+.clockdate {
     font-Size: 16px;
     color: var(--main-text-color);
-    font-Family:
-        '-apple-system',
-        'Cutive Mono';
-    font-Weight: 200;
     text-Align: center;
 
 }
@@ -331,13 +372,8 @@ tr:hover {
 .nextAlarm {
 
     xposition: absolute;
-    xfont-Size: 16px;
+    font-Size: 14px;
     xcolor: #D3D3D3;
-
-    font-Family:
-        '-apple-system',
-        'Cutive Mono';
-    xfont-Weight: 200;
     xtext-Align: center;
     xleft: 50%;
     xtop: 30%;
@@ -350,9 +386,6 @@ tr:hover {
 .xscheduled {
     color: var(--main-text-color);
     font-Size: 12px;
-    font-Family: '-apple-system',
-        'Cutive Mono';
-    font-Weight: 200;
     text-Align: left;
     margin-left: 0px;
     margin-top: 0px;
@@ -361,41 +394,26 @@ tr:hover {
 }
 
 .preferences {
-    font-Size: 16px;
+    font-Size: 14px;
     xcolor: #D3D3D3;
     color: var(--main-text-color);
-    font-Family: '-apple-system',
-        'Cutive Mono';
-    font-Weight: 200;
     text-Align: left;
-
 }
 
 .p-list-h {
-
     font-Size: 14px;
     color: var(--main-text2-color);
-    xcolor: black;
-    font-Family: '-apple-system',
-        'Cutive Mono';
-    xfont-Weight: 200;
     text-Align: left;
-
     margin-left: 0px;
     margin-top: 0px;
     margin-bottom: 0px
 }
 
 .p-list {
-
     font-Size: 14px;
     xcolor: #D3D3D3;
     color: var(--main-text-color);
-    font-Family: '-apple-system',
-        'Cutive Mono';
-    font-Weight: 200;
     text-Align: left;
-
     margin-left: 0px;
     margin-top: 0px;
     margin-bottom: 0px
@@ -439,25 +457,18 @@ tr:hover {
     transform: translateY(-50%);
 }
 
-.buttons {
-
-    xposition: relative;
-    xwidth: 400px;
-    xheight: 40px;
-    xborder: 0px dashed #f00;
-    xdisplay: table;
+.xbuttons {
+    position: absolute;
+    width: var(--main-width);
+    border: 1px dashed #f00;
     margin: 0 auto;
     text-align: center;
-    xtop: 50%;
-    xbottom: 50%;
-
+    transform: translateX(-50%);
 }
 
 .buttonMin {
-    xposition: relative;
-    xmargin-right: auto;
-    xmargin-left: auto;
-    padding: 0px 5px 0px 5px;
+
+    padding-right: 5px;
     opacity: .7;
     filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);
     transform: translateY(35%);
@@ -465,47 +476,34 @@ tr:hover {
 
 .buttonMin:hover {
     opacity: 1;
-    transition-duration: 4s;
+    transition-duration: 0s;
 }
 
 .buttonSec {
 
-    xposition: relative;
-    xmargin-right: auto;
-    xmargin-left: auto;
-    padding: 0px 5px 0px 5px;
+    padding-right: 5px;
     opacity: .7;
     filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(150deg) brightness(118%) contrast(119%);
-    xtransform-origin: 0% 0%;
     transform: translateY(35%);
 }
 
 .buttonSec:hover {
     opacity: 1;
-    transition-duration: 4s;
+    transition-duration: 0s;
 }
 
 .playChime {
-
-    xposition: relative;
-    xmargin-right: auto;
-    xmargin-left: auto;
     text-align: top;
     opacity: .7;
-    xfilter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(150deg) brightness(118%) contrast(119%);
-    xtransform-origin: 0% 0%;
-    xtransform: translateY(-10%);
 }
 
 .playChime:hover {
     opacity: 1;
-    xtransition-duration: 4s;
     transform: scale(1.2);
 }
 
 .playChime:active {
     opacity: 1;
-    xtransition-duration: 4s;
     transform: scale(.9);
 }
 
@@ -514,16 +512,12 @@ tr:hover {
     left: 94%;
     opacity: .7;
     filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(20deg) brightness(118%) contrast(119%);
-    xtop: 50%;
-    xtransform: scale(1.2, 1.2);
     transform: translateY(25%);
 }
 
 .preferencesButton:hover {
     opacity: 1;
     transition-duration: 4s;
-
-
 }
 
 .createTimerButton {
@@ -532,7 +526,6 @@ tr:hover {
     opacity: 0.7;
     transform: scale(1.2, 1.2);
     filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(20deg) brightness(118%) contrast(119%);
-    xtop: 50%;
     transform: translateY(25%);
 }
 
@@ -547,15 +540,12 @@ tr:hover {
     opacity: 0.7;
     transform: scale(1.2, 1.2);
     filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(20deg) brightness(118%) contrast(119%);
-    xtop: 50%;
     transform: translateY(25%);
 }
 
 .showCountDownButton:hover {
     opacity: 1;
     transition-duration: 4s;
-
-
 }
 
 .sbutton {
@@ -572,11 +562,7 @@ tr:hover {
     cursor: pointer;
     position: relative;
     transition: all 0s;
-
 }
-
-
-
 
 .xbutton:hover {
     xopacity: 1;
@@ -589,7 +575,6 @@ tr:hover {
     transition-duration: .01s;
     transform: scale(.9);
 }
-
 
 /* width */
 ::-webkit-scrollbar {
@@ -613,10 +598,10 @@ tr:hover {
 
 .tabBox {
     position: absolute;
-    top: 270px;
-    width: 486px;
-    height: 40px;
-    padding-top: 5px;
+    top: 283px;
+    width: var(--main-width);
+    height: 30px;
+    padding-top: 2px;
     background-color: var(--main-bg2-color);
     border-radius: 0px 0px 6px 6px;
 }
@@ -625,20 +610,17 @@ tr:hover {
     float: left;
     width: 20%;
     height: 100%;
-
     border: none;
     outline: none;
     cursor: pointer;
+    font-Family: var(--main-font);
     background-color: var(--main-bg2-color);
-
     font-size: 14px;
-    font-Family: '-apple-system',
-        'Cutive Mono';
-
     color: var(--main-text2-color);
+    padding-top: 3px;
     padding-left: 9px;
     padding-right: 9px;
-    padding-bottom: 5px;
+    padding-bottom: 2px;
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
 }

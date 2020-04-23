@@ -1,11 +1,13 @@
 // say the time and message
-function sayTime(cTime, msg, chime) {
+function sayTime(msg, chime) {
 
     //sounds.chime.play();
-    if (chime == undefined) {
-        playDefaultChime();
-    } else {
-        playChime(chime);
+    if (chime != false) {
+        if (chime == undefined) {
+            playDefaultChime();
+        } else {
+            playChime(chime);
+        }
     }
 
     // call the applescript function to speak
@@ -20,17 +22,20 @@ function speakNow() {
         nmin = d.getMinutes(),
         nsec = d.getSeconds();
 
-    if (nmin <= 9) nmin = "0" + nmin
-    if (nsec <= 9) nsec = "0" + nsec
+    var nhourSt = nhour.toString();
+    var nminSt = nmin.toString();
+    var nsecSt = nsec.toString();
+
+    if (nmin <= 9) nminSt = "0" + nminSt;
+    if (nsec <= 9) nsecSt = "0" + nsecSt;
 
     // nice format for the spoken time
-    var dhour = nhour;
-    if (dhour > 12) {
-        dhour = nhour - 12;
+    if (nhour > 12) {
+        nhourSt = (nhour - 12).toString();
     }
-    let time = dhour + ":" + nmin;
+    let time = nhourSt + ":" + nmin;
 
-    sayTime(time, time);
+    sayTime(time, false);
 }
 
 // appleScript script to say the text

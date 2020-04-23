@@ -2,67 +2,62 @@
 <!-- audio source http://rcptones.com/dev_tones/ -->
 <!-- http://creativecommons.org/licenses/by/3.0/us/ -->
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="tr" lang="tr" class="BTTDraggable">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
     <!-- <link href="https://fonts.googleapis.com/css?family=Cutive+Mono&display=swap" rel="stylesheet"> -->
     <link rel="stylesheet" type="text/css" href="./style.css" media="all">
     <meta http-equiv="content-type" content="text/html/javascript; charset=utf-8" />
-    <script src="./reminders.js"></script>
-    <script src="./preferences.js"></script>
-    <script src="./newTimer.js"></script>
-    <script src="./timers.js"></script>
-    <script src="./countDown.js"></script>
-    <script src="./say.js"></script>
-    <script src="./sounds.js"></script>
-    <script src="./dataStore.js"></script>
-    <script src="./lib/util.js"></script>
+    <script src="./out/reminders.js"></script>
+    <script src="./out/preferences.js"></script>
+    <script src="./out/newTimer.js"></script>
+    <script src="./out/timers.js"></script>
+    <script src="./out/countDown.js"></script>
+    <script src="./out/say.js"></script>
+    <script src="./out/sounds.js"></script>
+    <script src="./out/DataStore.js"></script>
+    <script src="./out/Colors.js"></script>
+    <script src="./out/tabs.js"></script>
+    <script src="./out/lib/util.js"></script>
     <script src="./lib/howler.js"></script>
-    <script src="./main.js"></script>
+    <script src="./out/main.js"></script>
 </head>
 
-<body id="backbody" scroll="no" style="overflow: hidden; " onload=initBody();>
+<body id="backbody" scroll="no" style="overflow: hidden; " onload="initBody();">
 
     <div id="backgroundBox" class="backgroundBox">
-        <div class="headerBox">
+        <span class="headerBox ">
 
-            <span class=buttons>
+            <img class=buttonSec onclick="newTimerButton({second:10, message: '10 seconds are up!'})"
+                src="./assets/images/black-circle-10.svg" width="31" height="21">
 
-                <img class=buttonSec onclick="newTimerButton({second:10, message: '10 seconds are up!'})"
-                    src="./assets/black-circle-10.svg" width="21" height="21" draggable="false">
+            <img class=buttonSec onclick="newTimerButton({second:15, message: '15 seconds are up!'})"
+                src="./assets/images/black-circle-15.svg" width="31" height="21" draggable="false">
 
-                <img class=buttonSec onclick="newTimerButton({second:15, message: '15 seconds are up!'})"
-                    src="./assets/black-circle-15.svg" width="21" height="21" draggable="false">
-
-                <img class=buttonSec onclick="newTimerButton({second:30, message: '30 seconds are up!'})"
-                    src="./assets/black-circle-30.svg" width="21" height="21" draggable="false">
+            <img class=buttonSec onclick="newTimerButton({second:30, message: '30 seconds are up!'})"
+                src="./assets/images/black-circle-30.svg" width="31" height="21" draggable="false">
 
 
-                <img class=buttonMin onclick="newTimerButton({minute:1, message: '1 minute is up!'})"
-                    src="./assets/blue-circle-1.svg" width="21" height="21" draggable="false">
+            <img class=buttonMin onclick="newTimerButton({minute:1, message: '1 minute is up!'})"
+                src="./assets/images/blue-circle-1.svg" width="31" height="21" draggable="false">
 
-                <img class=buttonMin onclick="newTimerButton({minute:3, message: '3 minutes are up!'})"
-                    src="./assets/black-circle-3.svg" width="21" height="21" draggable="false">
+            <img class=buttonMin onclick="newTimerButton({minute:3, message: '3 minutes are up!'})"
+                src="./assets/images/black-circle-3.svg" width="31" height="21" draggable="false">
 
-                <img class=buttonMin onclick="newTimerButton({minute:5, message: '5 minutes are up!'})"
-                    src="./assets/black-circle-5.svg" width="21" height="21" draggable="false">
+            <img class=buttonMin onclick="newTimerButton({minute:5, message: '5 minutes are up!'})"
+                src="./assets/images/black-circle-5.svg" width="31" height="21" draggable="false">
 
-                <img class=buttonMin onclick="newTimerButton({minute:10, message: '10 minutes are up!'})"
-                    src="./assets/black-circle-10.svg" width="21" height="21" draggable="false">
+            <img class=buttonMin onclick="newTimerButton({minute:10, message: '10 minutes are up!'})"
+                src="./assets/images/black-circle-10.svg" width="31" height="21" draggable="false">
 
-                <img class=buttonMin onclick="openSafariWindow()" src="./assets/black-circle-10.svg" width="21"
-                    height="21" draggable="false">
-
-            </span>
-        </div>
+        </span>
 
         <div class="tabBox">
-
-            <button class=tabButton id=scheduledBoxB onclick="showBox(event, 'scheduledBox')">Active</button>
-            <button class=tabButton id=newTimerBoxB onclick="showBox(event, 'newTimerBox')">Set </button>
-            <button class=tabButton id=countDownBoxB onclick="showBox(event, 'countDownBox')">Countdown </button>
-            <button class=tabButton id=currentTimeBoxB onclick="showBox(event, 'currentTimeBox')">Clock </button>
-            <button class=tabButton id=preferencesBoxB onclick="showBox(event, 'preferencesBox')">Preferences </button>
+            <button class=tabButton id=newTimerBoxB onclick="showTab(event, 'newTimerBox')">New </button>
+            <button class=tabButton id=scheduledBoxB onclick="showTab(event, 'scheduledBox')">List</button>
+            <button class=tabButton id=countDownBoxB onclick="showTab(event, 'countDownBox')">Timer </button>
+            <button class=tabButton id=currentTimeBoxB onclick="showTab(event, 'currentTimeBox')">Clock </button>
+            <button class=tabButton id=preferencesBoxB onclick="showTab(event, 'preferencesBox')">Preferences </button>
 
         </div>
 
@@ -75,15 +70,15 @@
                     <col>
                 </colgroup>
                 <thead>
-                    <th>Remaining</th>
-                    <th>Message</th>
-                    <th>AlarmTime</th>
+                    <th class='th1'>Timer</th>
+                    <th class='th1'>Message</th>
+                    <th class='th1'>AlarmTime</th>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                    <tr class='tr'>
+                        <td class='td1'></td>
+                        <td class='td1'></td>
+                        <td class='td1'></td>
                     </tr>
 
                 </tbody>
@@ -96,30 +91,61 @@
 
         <div id="preferencesBox" class="preferencesBox Box">
             <span id="preferences" class="preferences">
-                <b>Preferences</b> - Coming Soon. Default view, 12/24 display.
-                Future: Background process, custom countdowns, click to quiet alarm, trigger BTT triggers.
-                <p></p>
 
                 <label for="clock12" class="clock12">12 Hour Clock
                 </label><input type="checkbox" id="clock12" class="clock12" onclick=setClock12() draggable="false">
+                <table class="tablePref">
+                    <tr class="tablePref">
 
-                <p></p>
-                Default Chime:
-                <select id="defaultChime" class=iput onchange=setDefaultChime(this.value) style="width:160px;"
-                    draggable="false">
-                    <!-- options added from via javascript in sounds.js -->
-                </select>
+                        <td>Default Color:</td>
+                        <td>
+                            <button type="button" class="colorButton" onclick="changeColor(-1)">-</button>
 
-                <img class=playChime onclick="playDefaultChime()" src="./assets/musical-note-sharp.svg" width="21"
-                    height="21" draggable="false">
+                            <button type="button" class="colorButton" onclick="changeColor(1)">+</button>
+                        </td>
+                    </tr>
+                    <tr class="tablePref">
+                        <td>
+                            Default Tab:
+                        </td>
+                        <td>
+                            <select id="defaultTab" class=iput onchange=setDefaultTab(this.value) style="width:160px;"
+                                draggable="false">
+                                <!-- options added from via javascript in tabs.js -->
+                            </select>
+                        </td>
+                    </tr>
+                    <tr class="tablePref">
+                        <td>
+                            Default Chime:
+                        </td>
+                        <td>
+                            <select id="defaultChime" class=iput onchange=setDefaultChime(this.value)
+                                style="width:160px;" draggable="false">
+                                <!-- options added from via javascript in sounds.js -->
+                            </select>
 
-                <p></p>
-                Default Message:
-                <input id="defaultMessage" type="text" class=iput onblur="setDefaultMessage(this.value)"
-                    draggable="false">
 
+                            <img class=playChime onclick="playDefaultChime()"
+                                src="./assets/images/musical-note-sharp.svg" width="21" height="21" draggable="false">
+                        </td>
+                    </tr>
+                    <tr class="tablePref">
+                        <td>
+                            Default Message:
+                        </td>
+                        <td>
+                            <input id="defaultMessage" type="text" class=iput onblur="setDefaultMessage(this.value)"
+                                draggable="false">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span id="version" class="version"></span>
+                        </td>
+                    </tr>
+                </table>
 
-                <span id="version" class="version"></span>
 
             </span>
 
@@ -134,12 +160,12 @@
                 <!-- options added from via javascript in sounds.js -->
             </select>
 
-            <img class=playChime onclick="playNewChime()" src="./assets/musical-note-sharp.svg" width="21" height="21"
-                draggable="false" tabindex="2">
-
+            <img class=playChime onclick="playNewChime()" src="./assets/images/musical-note-sharp.svg" width="21"
+                height="21" draggable="false" tabindex="2">
 
             <input id="newMessage" type="text" onblur="setNewMessage(this.value)" class=iput value="Timer 1"
                 draggable="false" tabindex="3">
+
             <input id="newHour" type="text" onblur="setNewHour(this.value)" class=iput style="width:15px;" value="00"
                 draggable="false" tabindex="4">
             :
@@ -148,27 +174,33 @@
             :
             <input id="newSecond" type="text" onblur="setNewSecond(this.value)" class=iput style="width:15px;"
                 draggable="false" value="30" tabindex="6">
-            <button type="button" class=" iputButton" onclick="setNewTimer()" tabindex="7">Set</button>
 
+            <button type="button" class="iputButton" onclick="setNewTimer()" tabindex="7">Set</button>
 
             <!-- <img class=addButton2 onclick="newTimerButton({second: 30, message: '30 second timer complete'})"
-                src="./assets/add-circle-sharp.svg" width="24" height="24" draggable="false">
+                src="./assets/images/add-circle-sharp.svg" width="24" height="24" draggable="false">
            -->
         </div>
 
         <div id="countDownBox" class="countDownBox Box">
             <div id="countDownTime" class="countDownTime">
             </div>
+            <div id="countDownMsg" class="countDownMsg">
+            </div>
+            <table class="speakCountDown">
+                <tr class='normal'>
+                    <td>Speak:</td>
+                    <td><input type="checkbox" id="speakCountDown" onclick=setSpeakCountDown() draggable="false"></td>
+                </tr>
+            </table>
         </div>
 
         <div id="currentTimeBox" class="currentTimeBox Box">
-            <img class=speechButton onclick="speakNow()" src="./assets/chatbubble-ellipses-sharp.svg" width="16"
+            <img class=speechButton onclick="speakNow()" src="./assets/images/chatbubble-ellipses-sharp.svg" width="16"
                 height="16" draggable="false">
 
             <span id="clocktime" class="clocktime"></span>
         </div>
-
-
 
     </div>
 
