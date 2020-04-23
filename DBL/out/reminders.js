@@ -2,7 +2,8 @@ function loadReminders() {
     dsRemind = new DataStore({
         safari: safari,
         key: 'DBLReminders',
-        uuid: 'F1F05EB7-51AB-4F92-82D3-8E88466AF36E',
+        uuid: '17AFFF20-22A3-4DD4-ADFD-EF1B2631B6E2'
+        //uuid: 'F1F05EB7-51AB-4F92-82D3-8E88466AF36E',
     });
     dsRemind.load(reminders);
     // load the reminders data from .json file
@@ -48,6 +49,8 @@ function actionReminders() {
         dhour = (Number(nhour) - 12).toString();
     }
     let time = dhour + ":" + nmin;
+    if (reminders.length == 0)
+        return;
     // loop through all the reminders and take action
     reminders.forEach(checkReminder);
     function checkReminder(reminder, index) {
@@ -83,6 +86,8 @@ function updateReminders() {
         //console.log('reminders file not loaded')
         return;
     }
+    if (reminders.length == 0)
+        return;
     // sort the reminders, they could be in any order in the .json file
     // found this sort algorithm on stackoverflow
     reminders = sortByAttribute(reminders, 'sortBy');
@@ -118,6 +123,8 @@ function updateCountDown(index) {
     }
 }
 function resetCompleteFlag() {
+    if (reminders.length == 0)
+        return;
     // loop through reminders to determine which ones are tomorrow
     // reset the complete flag to false so it will be active tomorrow
     for (var index = 0; index < reminders.length; index++) {
@@ -135,6 +142,8 @@ function resetCompleteFlag() {
     }
 }
 function calcTomorrow() {
+    if (reminders.length == 0)
+        return;
     // loop through reminders to determine which ones are tomorrow
     // update sortDate based on current date and time
     // if reminder time is less then now then it is for tomorrow
@@ -171,7 +180,7 @@ function clearDisplayNextAlarm() {
     table.rows[1].cells[2].innerHTML = "";
 }
 function displaynextAlarm() {
-    if (reminders[0].disp_nextDiff == undefined)
+    if (reminders.length == 0)
         return;
     // find the next reminder after the current time from the sorted list
     var nextIndex = 0;
@@ -186,14 +195,18 @@ function displaynextAlarm() {
         }
     }
     // insert into table
-    var table = document.getElementById("nextAlarmTable");
-    table.rows[1].cells[0].innerHTML = reminders[index].disp_nextDiff;
-    table.rows[1].cells[1].innerHTML = reminders[index].disp_nextMsg;
-    table.rows[1].cells[2].innerHTML = reminders[index].disp_nextRem;
+    if (index < reminders.length) {
+        var table = document.getElementById("nextAlarmTable");
+        table.rows[1].cells[0].innerHTML = reminders[index].disp_nextDiff;
+        table.rows[1].cells[1].innerHTML = reminders[index].disp_nextMsg;
+        table.rows[1].cells[2].innerHTML = reminders[index].disp_nextRem;
+    }
     return index;
 }
 // calculates time to alarm for all reminders and timers
 function calcTimeToAction() {
+    if (reminders.length == 0)
+        return;
     var nowDate = new Date();
     var nextDate = new Date();
     for (var index = 0; index < reminders.length; index++) {
@@ -268,6 +281,8 @@ function calcTimeToAction() {
 }
 // debug code to display all reminders and timers
 function displayStatus() {
+    if (reminders.length == 0)
+        return;
     // debug code to show list of reminders
     var disp_status = "<table class=p-list>";
     var colGroup = "<colgroup> <col class='colw'><col class='colw2'><col> </colgroup>";
