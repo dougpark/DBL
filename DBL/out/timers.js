@@ -59,10 +59,10 @@ function getURLTimer() {
     }
 }
 function updateTimers() {
-    if (reminders == undefined) {
-        //console.log('reminders file not loaded')
+    if (reminders == undefined)
         return;
-    }
+    if (reminders.length == 0)
+        return;
     let newArray = [];
     let needsUpdate = false;
     for (var index = 0; index < reminders.length; index++) {

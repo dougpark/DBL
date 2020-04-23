@@ -148,10 +148,10 @@ function update() {
     if (anyReminders()) {
         // check for next alarm
         updateReminders();
-
-        // remove completed timers
-        updateTimers();
     }
+    // remove completed timers
+    updateTimers();
+
 
     // update the on screen date display
     updateDate();

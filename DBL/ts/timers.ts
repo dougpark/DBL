@@ -69,10 +69,8 @@ function getURLTimer() {
 
 function updateTimers() {
 
-    if (reminders == undefined) {
-        //console.log('reminders file not loaded')
-        return
-    }
+    if (reminders == undefined) return;
+    if (reminders.length == 0) return;
 
     let newArray = [];
     let needsUpdate = false;

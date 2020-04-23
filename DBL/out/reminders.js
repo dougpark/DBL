@@ -117,7 +117,9 @@ function updateReminders() {
     // displays the status of the next reminder that is due
     let index = displaynextAlarm();
     // update the countDown display
-    updateCountDown(index);
+    if (index >= 0) {
+        updateCountDown(index);
+    }
     // reset the complete flag so tomorrows reminders will work
     resetCompleteFlag();
 }
@@ -196,7 +198,7 @@ function clearDisplayNextAlarm() {
 }
 function displaynextAlarm() {
     if (!anyReminders())
-        return;
+        return -1;
     // find the next reminder after the current time from the sorted list
     var nextIndex = 0;
     var nowDate = new Date();
