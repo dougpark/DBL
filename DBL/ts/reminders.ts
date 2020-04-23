@@ -103,15 +103,23 @@ function actionReminders() {
 
 }
 
+function anyReminders() {
+    if (reminders == undefined) return false;
+    if (reminders.length == 0) return false;
+    let atLeastOne = false;
+    for (var index = 0; index < reminders.length; index++) {
+        let complete = reminders[index].complete;
+        if (complete == false) { atLeastOne = true; }
+    }
+    if (atLeastOne) { return true }
+    else { return false }
+
+}
+
 // many times a second process each reminder and take action when ready
 function updateReminders() {
 
-    if (reminders == undefined) {
-        //console.log('reminders file not loaded')
-        return
-    }
-
-    if (reminders.length == 0) return;
+    if (!anyReminders()) return;
 
     // sort the reminders, they could be in any order in the .json file
     // found this sort algorithm on stackoverflow
@@ -162,7 +170,7 @@ function updateCountDown(index) {
 
 function resetCompleteFlag() {
 
-    if (reminders.length == 0) return;
+    if (!anyReminders()) return;
 
     // loop through reminders to determine which ones are tomorrow
     // reset the complete flag to false so it will be active tomorrow
@@ -187,7 +195,7 @@ function resetCompleteFlag() {
 
 function calcTomorrow() {
 
-    if (reminders.length == 0) return;
+    if (!anyReminders()) return;
 
     // loop through reminders to determine which ones are tomorrow
     // update sortDate based on current date and time
@@ -232,7 +240,7 @@ function clearDisplayNextAlarm() {
 }
 
 function displaynextAlarm() {
-    if (reminders.length == 0) return;
+    if (!anyReminders()) return;
 
     // find the next reminder after the current time from the sorted list
     var nextIndex = 0;
@@ -261,7 +269,7 @@ function displaynextAlarm() {
 
 // calculates time to alarm for all reminders and timers
 function calcTimeToAction() {
-    if (reminders.length == 0) return;
+    if (!anyReminders()) return;
 
     var nowDate: Date = new Date();
     var nextDate: Date = new Date();
@@ -351,7 +359,7 @@ function calcTimeToAction() {
 // debug code to display all reminders and timers
 function displayStatus() {
 
-    if (reminders.length == 0) return;
+    if (!anyReminders()) return;
 
     // debug code to show list of reminders
     var disp_status = "<table class=p-list>";

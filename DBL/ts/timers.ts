@@ -9,6 +9,7 @@ function addTimer(timer) {
     timer.sortBy = 0;
     timer.type = "speak";
     timer.kind = "timer";
+    timer.complete = false;
 
     // add hour, min, sec to current time to set scheduled timer
     var d = new Date();

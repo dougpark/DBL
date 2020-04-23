@@ -106,9 +106,7 @@ function update() {
     // clear out the last alarm from the display
     clearDisplayNextAlarm();
     // don't process reminders, timers, alarms if the queue is empty
-    if (isEmptyObject(reminders)) {
-    }
-    else {
+    if (anyReminders()) {
         // check for next alarm
         updateReminders();
         // remove completed timers
