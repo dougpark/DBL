@@ -1,9 +1,10 @@
 class Colors {
     root: HTMLElement;
-    currentColor: number;
+    currentColor: number; //number
+
     colors: { bg: string; bg2: string; bg3: string; text: string; text2: string; }[];
     /*
-    
+     new colors
    
     #B6D9C0
     #A8B1A7
